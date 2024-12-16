@@ -31,4 +31,29 @@ return {
   [SettingNames.PingYOffset] = {
     en = "Y Offset"
   },
+  center = {
+    en = "Center",
+    de = "Mitte",
+    ru = "Центр",
+  },
+  left = {
+      en = "Left",
+      de = "Links",
+      ru = "Слева",
+  },
+  right = {
+      en = "Right",
+      de = "Rechts",
+      ru = "Справа",
+  },
+  top = {
+      en = "Top",
+      de = "Oben",
+      ru = "Вверху",
+  },
+  bottom = {
+      en = "Bottom",
+      de = "Unten",
+      ru = "Внизу",
+  },
 }

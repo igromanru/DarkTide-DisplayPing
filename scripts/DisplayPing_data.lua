@@ -23,9 +23,9 @@ return {
 				type = "dropdown",
 				default_value = "center",
 				options = {
-					{text = "center",   value = "center"},
-					{text = "left",   value = "left"},
-					{text = "right",   value = "right"},
+					{text = "center", value = "center"},
+					{text = "left", value = "left"},
+					{text = "right", value = "right"},
 				  },
 			},
 			{
@@ -33,9 +33,9 @@ return {
 				type = "dropdown",
 				default_value = "top",
 				options = {
-					{text = "center",   value = "center"},
-					{text = "top",   value = "top"},
-					{text = "bottom",   value = "bottom"},
+					{text = "center", value = "center"},
+					{text = "top", value = "top"},
+					{text = "bottom", value = "bottom"},
 				  },
 			},
 			{
@@ -47,7 +47,7 @@ return {
 			{
 				setting_id = SettingNames.PingYOffset,
 				type = "numeric",
-				default_value = 30,
+				default_value = 10,
 				range = {-200, 200},
 			},
 		}
