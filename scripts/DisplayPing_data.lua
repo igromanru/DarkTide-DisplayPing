@@ -50,6 +50,34 @@ return {
 				default_value = 10,
 				range = {-200, 200},
 			},
+			{
+				setting_id = SettingNames.PingColorGroup,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.PingColorR,
+						type = "numeric",
+						default_value = 255,
+						range = {0, 255},
+						decimals_number = 0
+					},
+					{
+						setting_id = SettingNames.PingColorG,
+						type = "numeric",
+						default_value = 255,
+						range = {0, 255},
+						decimals_number = 0
+					},
+					{
+						setting_id = SettingNames.PingColorB,
+						type = "numeric",
+						default_value = 255,
+						range = {0, 255},
+						decimals_number = 0
+					},
+				}
+			},
 		}
 	},
 }
