@@ -19,6 +19,11 @@ return {
 				default_value = true
 			},
 			{
+				setting_id = SettingNames.TacticalOverlayOnly,
+				type = "checkbox",
+				default_value = true
+			},
+			{
 				setting_id = SettingNames.PingHorizontalAlignment,
 				type = "dropdown",
 				default_value = "center",
@@ -51,16 +56,16 @@ return {
 				range = {-200, 200},
 			},
 			{
-				setting_id = SettingNames.PingFontSize,
-				type = "numeric",
-				default_value = 30,
-				range = {5, 100},
-			},
-			{
-				setting_id = SettingNames.PingColorGroup,
+				setting_id = SettingNames.PingStyleGroup,
 				type = "group",
 				sub_widgets =
 				{
+					{
+						setting_id = SettingNames.PingFontSize,
+						type = "numeric",
+						default_value = 30,
+						range = {5, 100},
+					},
 					{
 						setting_id = SettingNames.PingColorR,
 						type = "numeric",

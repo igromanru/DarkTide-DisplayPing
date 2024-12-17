@@ -19,6 +19,9 @@ return {
   [SettingNames.EnableMod] = {
     en = "Enable"
   },
+  [SettingNames.TacticalOverlayOnly] = {
+    en = "Show only in tactical overlay"
+  },
   [SettingNames.PingHorizontalAlignment] = {
     en = "Horizontal Alignment"
   },
@@ -34,8 +37,8 @@ return {
   [SettingNames.PingFontSize] = {
     en = "Text Size"
   },
-  [SettingNames.PingColorGroup] = {
-    en = "Text Color"
+  [SettingNames.PingStyleGroup] = {
+    en = "Text Settings"
   },
   [SettingNames.PingColorR] = {
     en = "Red"
