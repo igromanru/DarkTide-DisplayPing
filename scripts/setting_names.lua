@@ -20,6 +20,9 @@ local SettingNames = {
     PingLowColor = "ping_low_color",
     PingMiddleColor = "ping_middle_color",
     PingHighColor = "ping_high_color",
+    PingLowMinValue = "ping_low_min_value",
+    PingMiddleMinValue = "ping_middle_min_value",
+    PingHighMinValue = "ping_high_min_value",
 }
 
 return SettingNames

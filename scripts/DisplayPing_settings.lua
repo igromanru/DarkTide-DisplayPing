@@ -16,11 +16,10 @@ end
 
 mod.get_ping_color_array = function(self, alpha)
     alpha = alpha or 255
-    local r = self:get(SettingNames.PingColorR)
-    local g = self:get(SettingNames.PingColorG)
-    local b = self:get(SettingNames.PingColorB)
 
-    return { alpha, r, g, b }
+    local color = mod.Colors.get_color(self:get(SettingNames.PingDefaultColor))
+    color = color or Color.white(alpha, true)
+    return color
 end
 
 mod.get_font_size = function(self)

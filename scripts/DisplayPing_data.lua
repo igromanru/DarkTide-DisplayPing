@@ -99,22 +99,40 @@ return {
 						default_value = true
 					},
 					{
+						setting_id = SettingNames.PingLowMinValue,
+						type = "numeric",
+						default_value = 10,
+						range = { 10, 100 },
+					},
+					{
 						setting_id = SettingNames.PingLowColor,
 						type = "dropdown",
 						options = clone_color_options(),
-						default_value = "white",
+						default_value = "online_green",
+					},
+					{
+						setting_id = SettingNames.PingMiddleMinValue,
+						type = "numeric",
+						default_value = 60,
+						range = { 30, 200 },
 					},
 					{
 						setting_id = SettingNames.PingMiddleColor,
 						type = "dropdown",
 						options = clone_color_options(),
-						default_value = "white",
+						default_value = "yellow",
+					},
+					{
+						setting_id = SettingNames.PingHighMinValue,
+						type = "numeric",
+						default_value = 100,
+						range = { 50, 200 },
 					},
 					{
 						setting_id = SettingNames.PingHighColor,
 						type = "dropdown",
 						options = clone_color_options(),
-						default_value = "white",
+						default_value = "dark_red",
 					},
 				}
 			},
