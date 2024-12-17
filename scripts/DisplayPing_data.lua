@@ -28,32 +28,32 @@ return {
 				type = "dropdown",
 				default_value = "center",
 				options = {
-					{text = "center", value = "center"},
-					{text = "left", value = "left"},
-					{text = "right", value = "right"},
-				  },
+					{ text = "center", value = "center" },
+					{ text = "left",   value = "left" },
+					{ text = "right",  value = "right" },
+				},
 			},
 			{
 				setting_id = SettingNames.PingVerticalAlignment,
 				type = "dropdown",
 				default_value = "top",
 				options = {
-					{text = "center", value = "center"},
-					{text = "top", value = "top"},
-					{text = "bottom", value = "bottom"},
-				  },
+					{ text = "center", value = "center" },
+					{ text = "top",    value = "top" },
+					{ text = "bottom", value = "bottom" },
+				},
 			},
 			{
 				setting_id = SettingNames.PingXOffset,
 				type = "numeric",
 				default_value = 0,
-				range = {-300, 300},
+				range = { -300, 300 },
 			},
 			{
 				setting_id = SettingNames.PingYOffset,
 				type = "numeric",
 				default_value = 20,
-				range = {-300, 300},
+				range = { -300, 300 },
 			},
 			{
 				setting_id = SettingNames.PingStyleGroup,
@@ -64,27 +64,27 @@ return {
 						setting_id = SettingNames.PingFontSize,
 						type = "numeric",
 						default_value = 30,
-						range = {10, 50},
+						range = { 10, 50 },
 					},
 					{
 						setting_id = SettingNames.PingColorR,
 						type = "numeric",
 						default_value = 255,
-						range = {0, 255},
+						range = { 0, 255 },
 						decimals_number = 0
 					},
 					{
 						setting_id = SettingNames.PingColorG,
 						type = "numeric",
 						default_value = 255,
-						range = {0, 255},
+						range = { 0, 255 },
 						decimals_number = 0
 					},
 					{
 						setting_id = SettingNames.PingColorB,
 						type = "numeric",
 						default_value = 255,
-						range = {0, 255},
+						range = { 0, 255 },
 						decimals_number = 0
 					},
 				}

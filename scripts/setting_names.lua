@@ -6,7 +6,7 @@
 
 ---@enum SettingNames
 local SettingNames = {
-	EnableMod = "enable_mod",
+    EnableMod = "enable_mod",
     TacticalOverlayOnly = "tactical_overlay_only",
     PingHorizontalAlignment = "ping_horizontal_alignment",
     PingVerticalAlignment = "ping_vertical_alignment",
