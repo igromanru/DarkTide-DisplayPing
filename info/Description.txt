@@ -1,7 +1,7 @@
 [font=Verdana][size=4][b]Description[/b][/size][/font]
-The mod adds a Ping text widget to the HUD.
-In the mod options you can change the color, size and position of the text on the screen.
-You can also specify whether it should be permanently displayed or only in the tactical overlay. (Overlay that can be open with the Tab key per default)
+The mod adds a text widget to the HUD that displays the current ping latency to the server and allows you to adjust the alignment on the screen, the size and the color of the text via the mod options.
+You can also specify whether it should only be visible in the tactical overlay. (Overlay that by default can be opened with the Tab key)
+This mod is an alternative to [url=https://www.nexusmods.com/warhammer40kdarktide/mods/13]Ping Monitor[/url].
 
 [font=Verdana][size=4][b]Requirements[/b][/size][/font]
 [size=3]- [url=https://www.nexusmods.com/warhammer40kdarktide/mods/19]Darktide Mod Loader[/url]
