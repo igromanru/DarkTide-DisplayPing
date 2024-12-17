@@ -1,0 +1,4 @@
+[submodule "scripts/ModUtils"]
+	path = scripts/ModUtils
+	url = https://github.com/igromanru/DarkTide-ModUtils.git
+	branch = master

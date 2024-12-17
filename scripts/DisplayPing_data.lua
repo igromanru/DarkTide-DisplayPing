@@ -4,12 +4,12 @@
     Mod Name: Display Ping
 ]]
 local mod = get_mod("DisplayPing")
-mod:io_dofile("DisplayPing/scripts/DisplayPing_colors")
+mod.Colors = mod:io_dofile("DisplayPing/scripts/ModUtils/Colors")
 
 local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 
 local color_options = {}
-for _, color_entity in ipairs(mod.get_color_entities()) do
+for _, color_entity in ipairs(mod.Colors.get_entities()) do
     table.insert(color_options, {
             text = color_entity.color_name,
             value = color_entity.color_name
