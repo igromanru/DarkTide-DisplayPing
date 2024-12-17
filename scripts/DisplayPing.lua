@@ -16,7 +16,7 @@ end
 
 local last_ping = 0
 mod.get_ping = function()
-    if not last_ping then return "-1" end
+    if not last_ping then return -1 end
     return round(last_ping)
 end
 
