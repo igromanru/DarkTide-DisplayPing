@@ -2,10 +2,9 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.0.0
+    Version: 1.1.0
 ]]
 local mod = get_mod("DisplayPing")
-mod:io_dofile("DisplayPing/scripts/DisplayPingSettings")
 
 mod.signal_style_update = true
 
@@ -36,21 +35,21 @@ mod.should_show_ping = function()
     return mod:is_enabled() and (not mod:tactical_overlay_only() or mod:is_tactical_overlay_active())
 end
 
-if not mod:register_hud_element({
-	class_name = "HudPing",
-	filename = "DisplayPing/scripts/hud_elements/hud_ping",
-	use_hud_scale = true,
-	visibility_groups = {
-		"tactical_overlay",
-		"alive",
-        "dead",
-	},
-    -- validation_function = function (params)
-    --     return mod:is_enabled()
-    -- end
-}) then
-    mod:error("Failed to register Display Ping widget")
-end
+-- if not mod:register_hud_element({
+-- 	class_name = "HudPing",
+-- 	filename = "DisplayPing/scripts/hud_elements/hud_ping",
+-- 	use_hud_scale = true,
+-- 	visibility_groups = {
+-- 		"tactical_overlay",
+-- 		"alive",
+--         "dead",
+-- 	},
+--     -- validation_function = function (params)
+--     --     return mod:is_enabled()
+--     -- end
+-- }) then
+--     mod:error("Failed to register Display Ping widget")
+-- end
 
 mod:hook_safe(CLASS.PingReporter, "_take_measure", function(self, dt)
     last_ping = self._measures[#self._measures]

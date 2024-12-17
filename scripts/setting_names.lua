@@ -12,11 +12,14 @@ local SettingNames = {
     PingVerticalAlignment = "ping_vertical_alignment",
     PingXOffset = "ping_offset_x",
     PingYOffset = "ping_offset_y",
-    PingFontSize = "ping_font_size",
     PingStyleGroup = "ping_style_group",
-    PingColorR = "ping_color_r",
-    PingColorG = "ping_color_g",
-    PingColorB = "ping_color_b",
+    PingFontSize = "ping_font_size",
+    PingDefaultColor = "ping_default_color",
+    PingRangeIndicatorGroup = "ping_range_indicator_group",
+    PingRangeIndicator = "ping_range_indicator",
+    PingLowColor = "ping_low_color",
+    PingMiddleColor = "ping_middle_color",
+    PingHighColor = "ping_high_color",
 }
 
 return SettingNames

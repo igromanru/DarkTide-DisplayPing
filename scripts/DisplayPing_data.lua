@@ -4,7 +4,21 @@
     Mod Name: Display Ping
 ]]
 local mod = get_mod("DisplayPing")
+mod:io_dofile("DisplayPing/scripts/DisplayPing_colors")
+
 local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
+
+local color_options = {}
+for _, color_entity in ipairs(mod.get_color_entities()) do
+    table.insert(color_options, {
+            text = color_entity.color_name,
+            value = color_entity.color_name
+        })
+end
+
+local function clone_color_options()
+	return table.clone(color_options)
+end
 
 return {
 	name = mod:localize("mod_name"),
@@ -67,25 +81,40 @@ return {
 						range = { 10, 50 },
 					},
 					{
-						setting_id = SettingNames.PingColorR,
-						type = "numeric",
-						default_value = 255,
-						range = { 0, 255 },
-						decimals_number = 0
+						setting_id = SettingNames.PingDefaultColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
+					},
+				}
+			},
+			{
+				setting_id = SettingNames.PingRangeIndicatorGroup,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.PingRangeIndicator,
+						type = "checkbox",
+						default_value = true
 					},
 					{
-						setting_id = SettingNames.PingColorG,
-						type = "numeric",
-						default_value = 255,
-						range = { 0, 255 },
-						decimals_number = 0
+						setting_id = SettingNames.PingLowColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
 					},
 					{
-						setting_id = SettingNames.PingColorB,
-						type = "numeric",
-						default_value = 255,
-						range = { 0, 255 },
-						decimals_number = 0
+						setting_id = SettingNames.PingMiddleColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
+					},
+					{
+						setting_id = SettingNames.PingHighColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
 					},
 				}
 			},
