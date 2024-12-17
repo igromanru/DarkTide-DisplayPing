@@ -47,13 +47,13 @@ return {
 				setting_id = SettingNames.PingXOffset,
 				type = "numeric",
 				default_value = 0,
-				range = {-200, 200},
+				range = {-300, 300},
 			},
 			{
 				setting_id = SettingNames.PingYOffset,
 				type = "numeric",
-				default_value = 10,
-				range = {-200, 200},
+				default_value = 20,
+				range = {-300, 300},
 			},
 			{
 				setting_id = SettingNames.PingStyleGroup,
@@ -64,7 +64,7 @@ return {
 						setting_id = SettingNames.PingFontSize,
 						type = "numeric",
 						default_value = 30,
-						range = {5, 100},
+						range = {10, 50},
 					},
 					{
 						setting_id = SettingNames.PingColorR,

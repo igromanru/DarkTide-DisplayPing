@@ -26,8 +26,8 @@ HudPing.update = function (self, dt, t, ui_renderer, render_settings, input_serv
 	HudPing.super.update(self, dt, t, ui_renderer, render_settings, input_service)
 end
 
-HudPing._update_style = function (self, ping_widget, force_update)
-	if mod.signal_style_update or force_update then
+HudPing._update_style = function (self, ping_widget)
+	if mod.signal_style_update then
 		mod.signal_style_update = false
 		if ping_widget then
 			ping_widget.style.ping_text.font_size = mod:get_font_size()
