@@ -31,6 +31,21 @@ return {
   [SettingNames.PingYOffset] = {
     en = "Y Offset"
   },
+  [SettingNames.PingFontSize] = {
+    en = "Text Size"
+  },
+  [SettingNames.PingColorGroup] = {
+    en = "Text Color"
+  },
+  [SettingNames.PingColorR] = {
+    en = "Red"
+  },
+  [SettingNames.PingColorG] = {
+    en = "Green"
+  },
+  [SettingNames.PingColorB] = {
+    en = "Blue"
+  },
   center = {
     en = "Center",
     de = "Mitte",

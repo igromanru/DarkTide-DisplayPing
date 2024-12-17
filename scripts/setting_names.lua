@@ -11,6 +11,7 @@ local SettingNames = {
     PingVerticalAlignment = "ping_vertical_alignment",
     PingXOffset = "ping_offset_x",
     PingYOffset = "ping_offset_y",
+    PingFontSize = "ping_font_size",
     PingColorGroup = "ping_color_group",
     PingColorR = "ping_color_r",
     PingColorG = "ping_color_g",

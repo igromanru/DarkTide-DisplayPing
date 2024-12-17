@@ -14,75 +14,53 @@ local ping_hud_element = {
 }
 
 mod.ping = 0
+mod.signal_style_update = true
 
 mod.round = function (num, decimal_places)
+    if not num then return 0.0 end
     local mult = 10^(decimal_places or 0)
     return math.floor(num * mult + 0.5) / mult
 end
 
-mod.get_ping_color_array = function(self)
-	local r = self.round(tonumber(self:get(SettingNames.PingColorR)) / 255, 3)
-	local g = self.round(tonumber(self:get(SettingNames.PingColorG)) / 255, 3)
-	local b = self.round(tonumber(self:get(SettingNames.PingColorB)) / 255, 3)
+mod.get_ping_color_array = function(self, alpha)
+    alpha = alpha or 255
+	local r = self:get(SettingNames.PingColorR)
+	local g = self:get(SettingNames.PingColorG)
+	local b = self:get(SettingNames.PingColorB)
     
-	return {r,g,b}
+	return {alpha, r, g, b}
 end
 
----@param element_name string
----@return HudElementBase?
-mod.get_hud_element = function(element_name)
-	local ui_manager = Managers.ui
-    if element_name and ui_manager then
-        local hud = ui_manager:get_hud()
-        if hud then
-            return hud:element(element_name)
-        end
-    end
-    return nil
+mod.get_font_size = function(self)
+    return self:get(SettingNames.PingFontSize)
 end
 
-local function update_style_settings()
-	local ping_element = mod.get_hud_element(ping_hud_element.class_name) ---@type HudPing
-	if ping_element then
-        local ping_widget = ping_element._widgets_by_name.ping_widget
-        if ping_widget then
-            -- for key, value in pairs(ping_widget) do
-            --     mod:echo("key: %s, value: %s", tostring(key), tostring(value))
-            -- end
-            ping_widget.style.text_color = mod:get_ping_color_array()
-        end
-		local id = HudPingDefinitions.scenegraph_id
-		ping_element:set_scenegraph_position(id, mod:get(SettingNames.PingXOffset), mod:get(SettingNames.PingYOffset), 0, 
-                                            mod:get(SettingNames.PingHorizontalAlignment), mod:get(SettingNames.PingVerticalAlignment))
-	end
+mod.get_x_offset = function(self)
+    return self:get(SettingNames.PingXOffset)
 end
 
--- local function recreate_hud()
---     local ui_manager = Managers.ui
---     if ui_manager then
---         local hud = ui_manager._hud
---         if hud then
---             -- local player_manager = Managers.player
---             -- local player = player_manager:local_player(1)
---             -- local peer_id = player:peer_id()
---             -- local local_player_id = player:local_player_id()
---             -- local elements = hud._element_definitions
---             -- local visibility_groups = hud._visibility_groups
+mod.get_y_offset = function(self)
+    return self:get(SettingNames.PingYOffset)
+end
 
---             -- hud:destroy()
---             -- ui_manager:create_player_hud(peer_id, local_player_id, elements, visibility_groups)
+mod.get_horizontal_alignment = function(self)
+    return self:get(SettingNames.PingHorizontalAlignment)
+end
 
--- 			update_style_settings(ui_manager._hud)
---         end
---     end
--- end
+mod.get_vertical_alignment = function(self)
+    return self:get(SettingNames.PingVerticalAlignment)
+end
+
+local function signal_style_update()
+    mod.signal_style_update = true
+end
 
 mod.on_all_mods_loaded = function()
-    update_style_settings()
+    signal_style_update()
 end
 
 mod.on_setting_changed = function(setting_id)
-    update_style_settings()
+    signal_style_update()
 end
 
 if not mod:register_hud_element({

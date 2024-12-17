@@ -33,7 +33,7 @@ return {
                 value = "",
                 style = {
                     font_type = "machine_medium",
-					font_size = 28,
+					font_size = 30,
 					drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",

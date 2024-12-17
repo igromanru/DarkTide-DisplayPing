@@ -51,6 +51,12 @@ return {
 				range = {-200, 200},
 			},
 			{
+				setting_id = SettingNames.PingFontSize,
+				type = "numeric",
+				default_value = 30,
+				range = {5, 100},
+			},
+			{
 				setting_id = SettingNames.PingColorGroup,
 				type = "group",
 				sub_widgets =
