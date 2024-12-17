@@ -1,0 +1,24 @@
+[font=Verdana][size=4][b]Description[/b][/size][/font]
+The mod adds a Ping text widget to the HUD.
+In the mod options you can change the color, size and position of the text on the screen.
+You can also specify whether it should be permanently displayed or only in the tactical overlay. (Overlay that can be open with the Tab key per default)
+
+[font=Verdana][size=4][b]Requirements[/b][/size][/font]
+[size=3]- [url=https://www.nexusmods.com/warhammer40kdarktide/mods/19]Darktide Mod Loader[/url]
+- [url=https://www.nexusmods.com/warhammer40kdarktide/mods/8]Darktide Mod Framework[/url][/size]
+
+[font=Verdana][size=4][b]Installation[/b][/size][/font]
+1. Read descriptions and install [url=https://www.nexusmods.com/warhammer40kdarktide/mods/19]Darktide Mod Loader[/url] and [url=https://www.nexusmods.com/warhammer40kdarktide/mods/8]Darktide Mod Framework[/url]
+2. In [b]Files[/b] tab use the [b]Mod Manager Download[/b] button to install the mod with [url=https://www.nexusmods.com/about/vortex/]Vortex[/url].
+3. Make sure the mod is enabled in Vortex's [b]Load Order[/b] tab.
+4. Done.
+
+
+[b][url=https://github.com/igromanru/DarkTide-DisplayPing]GitHub Page[/url][/b]
+
+[font=Arial][size=4]Highest form of appreciation[/size][/font]
+[size=2]If you like my work and feel generous, you can support me.[/size]
+[url=https://ko-fi.com/igromanru][img]https://i.imgur.com/rGcPxK8.png[/img][/url]
+[b]BTC:[/b] bc1q3frvfljn7ut09ggep2gxugv4ypqvyexz3ya7ja
+[b]ETH:[/b] 0xEedBbF6eFa84198cc94fE4Bf6FBB5dfa674AF86b
+[b]ADA:[/b] addr1qyx2sd2rgwdzvjhwnc35udx4k6w9lg524pwrf0llr7d2shzrewyq3nqyxfceuhgh5n5ucx3n8ws0n48krrlpw4khtedq4hzv93
