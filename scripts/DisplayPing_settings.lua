@@ -19,7 +19,6 @@ end
 ---@return integer[]
 mod.get_default_color = function(self)
     local color = mod.Colors.get_color(self:get(SettingNames.PingDefaultColor))
-    mod:echo("get_default_color: %s", self:get(SettingNames.PingDefaultColor))
     return color or Color.white(255, true)
 end
 
