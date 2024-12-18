@@ -2,22 +2,47 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.1.1
+    Version: 1.2.0
 ]]
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
 
 mod.signal_style_update = true
 
+local max_measures_count = 20
+local last_ping = 0
+local measures = {}
+
 local function round(num, decimal_places)
     local mult = 10^(decimal_places or 0)
     return math.floor(num * mult + 0.5) / mult
 end
 
-local last_ping = 0
+local function add_measure(ping)
+    if ping then
+        table.insert(measures, ping)
+        local remove_count = #measures - max_measures_count
+        if remove_count > 0 then
+            for i = 1, remove_count do
+                table.remove(measures, 1)
+            end
+        end
+    end
+end
+
+local function get_average_ping()
+    return round(table.average(measures))
+end
+
 mod.get_ping = function()
-    if not last_ping then return -1 end
-    return round(last_ping)
+    local ping = last_ping
+
+    if mod:show_average_ping() then
+        ping = get_average_ping()
+    end
+
+    if not ping then return -1 end
+    return round(ping)
 end
 
 mod.get_ping_color = function(self)
@@ -68,4 +93,5 @@ end
 
 mod:hook_safe(CLASS.PingReporter, "_take_measure", function(self, dt)
     last_ping = self._measures[#self._measures]
+    add_measure(last_ping)
 end)

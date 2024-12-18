@@ -22,6 +22,12 @@ local localizations = {
   [SettingNames.TacticalOverlayOnly] = {
     en = "Show only in tactical overlay"
   },
+  [SettingNames.ShowAveragePing] = {
+    en = "Show Average Ping"
+  },
+  [SettingNames.ShowAveragePingTooltip] = {
+    en = "Experimental feature. Average ping doesn't show your current ping accurately."
+  },
   [SettingNames.PingHorizontalAlignment] = {
     en = "Horizontal Alignment"
   },

@@ -38,6 +38,12 @@ return {
 				default_value = true
 			},
 			{
+				setting_id = SettingNames.ShowAveragePing,
+				tooltip = SettingNames.ShowAveragePingTooltip,
+				type = "checkbox",
+				default_value = false
+			},
+			{
 				setting_id = SettingNames.PingHorizontalAlignment,
 				type = "dropdown",
 				default_value = "center",

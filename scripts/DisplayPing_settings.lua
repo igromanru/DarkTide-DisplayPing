@@ -16,6 +16,11 @@ mod.tactical_overlay_only = function(self)
     return self:get(SettingNames.TacticalOverlayOnly)
 end
 
+---@return boolean
+mod.show_average_ping = function(self)
+    return self:get(SettingNames.ShowAveragePing)
+end
+
 ---@return integer[]
 mod.get_default_color = function(self)
     local color = mod.Colors.get_color(self:get(SettingNames.PingDefaultColor))
