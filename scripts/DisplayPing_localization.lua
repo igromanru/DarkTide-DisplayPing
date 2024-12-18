@@ -24,7 +24,7 @@ local localizations = {
     en = "Show Average Ping"
   },
   [SettingNames.ShowAveragePingTooltip] = {
-    en = "Shows average ping in selected time frame."
+    en = "Shows average ping in selected time frame. When disabled, the mod displays last measurement."
   },
   [SettingNames.ShowAveragePingTimeFrame] = {
     en = "Average Ping time frame in seconds"
