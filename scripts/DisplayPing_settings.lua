@@ -21,6 +21,12 @@ mod.show_average_ping = function(self)
     return self:get(SettingNames.ShowAveragePing)
 end
 
+---@return integer
+mod.get_average_ping_time_frame = function(self)
+    local value = self:get(SettingNames.ShowAveragePingTimeFrame)
+    return value or 20
+end
+
 ---@return integer[]
 mod.get_default_color = function(self)
     local color = mod.Colors.get_color(self:get(SettingNames.PingDefaultColor))

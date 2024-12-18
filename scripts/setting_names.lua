@@ -10,6 +10,7 @@ local SettingNames = {
     TacticalOverlayOnly = "tactical_overlay_only",
     ShowAveragePing = "show_average_ping",
     ShowAveragePingTooltip = "show_average_ping_tooltip",
+    ShowAveragePingTimeFrame = "average_ping_timeframe",
     PingHorizontalAlignment = "ping_horizontal_alignment",
     PingVerticalAlignment = "ping_vertical_alignment",
     PingXOffset = "ping_offset_x",

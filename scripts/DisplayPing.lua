@@ -9,7 +9,6 @@ mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
 
 mod.signal_style_update = true
 
-local max_measures_count = 20
 local last_ping = 0
 local measures = {}
 
@@ -21,7 +20,7 @@ end
 local function add_measure(ping)
     if ping then
         table.insert(measures, ping)
-        local remove_count = #measures - max_measures_count
+        local remove_count = #measures - mod:get_average_ping_time_frame()
         if remove_count > 0 then
             for i = 1, remove_count do
                 table.remove(measures, 1)

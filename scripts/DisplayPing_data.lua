@@ -44,6 +44,12 @@ return {
 				default_value = false
 			},
 			{
+				setting_id = SettingNames.ShowAveragePingTimeFrame,
+				type = "numeric",
+				default_value = 20,
+				range = { 5, 60 },
+			},
+			{
 				setting_id = SettingNames.PingHorizontalAlignment,
 				type = "dropdown",
 				default_value = "center",

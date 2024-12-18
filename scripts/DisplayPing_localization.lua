@@ -26,7 +26,10 @@ local localizations = {
     en = "Show Average Ping"
   },
   [SettingNames.ShowAveragePingTooltip] = {
-    en = "Experimental feature. Average ping doesn't show your current ping accurately."
+    en = "Shows average ping in selected time frame."
+  },
+  [SettingNames.ShowAveragePingTimeFrame] = {
+    en = "Average Ping time frame in seconds"
   },
   [SettingNames.PingHorizontalAlignment] = {
     en = "Horizontal Alignment"
