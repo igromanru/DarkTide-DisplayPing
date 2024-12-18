@@ -1,7 +1,7 @@
 --[[
     Author: Igromanru
-    Date: 28.11.2024
-    Mod Name: Remove Region Restrictions
+    Date: 16.12.2024
+    Mod Name: Display Ping
 ]]
 
 ---@enum SettingNames

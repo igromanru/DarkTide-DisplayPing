@@ -2,7 +2,6 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.0.0
 ]]
 local UIWorkspaceSettings = require("scripts/settings/ui/ui_workspace_settings")
 local UIWidget = require("scripts/managers/ui/ui_widget")
@@ -20,7 +19,7 @@ return {
             parent = "screen",
             vertical_alignment = "top",
             horizontal_alignment = "center",
-            size = { 50, 20 },
+            size = { 50, 40 },
             position = default_settings.position
         }
     },

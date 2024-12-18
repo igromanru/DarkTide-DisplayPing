@@ -13,6 +13,20 @@ This mod is an alternative to [url=https://www.nexusmods.com/warhammer40kdarktid
 3. Make sure the mod is enabled in Vortex's [b]Load Order[/b] tab.
 4. Done.
 
+[font=Verdana][size=4][b]Differences to the Ping Monitor mod[/b][/size][/font]
+These are the key differences to the existing ping display mod [url=https://www.nexusmods.com/warhammer40kdarktide/mods/13]Ping Monitor[/url].
+[list]
+[*]Display Ping has options to adjust the text alignment on the screen with relative correction via offset value, customizable color and text size.
+[*]Ping Monitor shows the ping only in the "Tactical Overlay", while Display Ping gives you the option to show the ping all the time.
+[*]Display Ping mod shows the latest ping measurement, while Ping Monitor shows average ping.
+[*]Display Ping uses current ping value for Dynamic Color Range, Ping Monitor shows the text in orange or red depending on jitter.
+[/list]
+Currently I see no reason to show average ping instead of the latest latency measurement. I might add it as an option later, it it's useful.
+
+[font=Verdana][size=4][b]Feedback[/b][/size][/font]
+I'm a minimalist and the mod is good enough for me to check once in a while if my ping is high.
+Therefore if you have any suggestion leave a comment.
+
 
 [b][url=https://github.com/igromanru/DarkTide-DisplayPing]GitHub Page[/url][/b]
 
