@@ -53,10 +53,19 @@ local localizations = {
     en = "Low Ping Color"
   },
   [SettingNames.PingMiddleColor] = {
-    en = "Middle Ping Color"
+    en = "Acceptable Ping Color"
   },
   [SettingNames.PingHighColor] = {
     en = "High Ping Color"
+  },
+  [SettingNames.PingLowMinValue] = {
+    en = "Low Ping Range Start"
+  },
+  [SettingNames.PingMiddleMinValue] = {
+    en = "Acceptable Ping Range Start"
+  },
+  [SettingNames.PingHighMinValue] = {
+    en = "High Ping Range Start"
   },
   center = {
     en = "Center",

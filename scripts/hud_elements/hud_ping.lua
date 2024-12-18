@@ -28,16 +28,18 @@ HudPing._update_ping = function(self)
 	local ping = mod.get_ping()
 	if ping ~= self._ping_cache then
 		self._ping_cache = ping
-		self._widgets_by_name.ping_widget.content.ping_text = ping
+		local ping_widget = self._widgets_by_name.ping_widget
+		ping_widget.content.ping_text = ping
+		ping_widget.style.ping_text.text_color = mod:get_ping_color()
 	end
 end
 
 HudPing._update_style = function(self)
 	if mod.signal_style_update then
 		mod.signal_style_update = false
-		local ping_widget = self._widgets_by_name.ping_widget
-		ping_widget.style.ping_text.font_size = mod:get_font_size()
-		ping_widget.style.ping_text.text_color = mod:get_ping_color_array()
+		local ping_widget_style = self._widgets_by_name.ping_widget.style
+		ping_widget_style.ping_text.font_size = mod:get_font_size()
+		ping_widget_style.ping_text.text_color = mod:get_ping_color()
 		self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
 			mod:get_horizontal_alignment(), mod:get_vertical_alignment())
 	end

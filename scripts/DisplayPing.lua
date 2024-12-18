@@ -20,6 +20,20 @@ mod.get_ping = function()
     return round(last_ping)
 end
 
+mod.get_ping_color = function(self)
+    local ping = self.get_ping()
+
+    if ping >= self:get_high_min_value() then
+        return self:get_high_color()
+    elseif ping >= self:get_middle_min_value() then
+        return self:get_middle_color()
+    elseif ping >= self:get_low_min_value() then
+        return self:get_low_color()
+    end
+
+    return self:get_default_color()
+end
+
 mod.on_setting_changed = function(setting_id)
     mod.signal_style_update = true
 end

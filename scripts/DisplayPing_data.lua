@@ -102,7 +102,7 @@ return {
 						setting_id = SettingNames.PingLowMinValue,
 						type = "numeric",
 						default_value = 10,
-						range = { 10, 100 },
+						range = { 1, 100 },
 					},
 					{
 						setting_id = SettingNames.PingLowColor,
