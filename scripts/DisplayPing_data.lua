@@ -98,6 +98,17 @@ return {
 						options = clone_color_options(),
 						default_value = "white",
 					},
+					{
+						setting_id = SettingNames.PingLabel,
+						type = "dropdown",
+						default_value = SettingNames.PingLabels.None,
+						options = {
+							{ text = SettingNames.PingLabels.None, value = SettingNames.PingLabels.None },
+							{ text = SettingNames.PingLabels.Ping, value = SettingNames.PingLabels.Ping },
+							{ text = SettingNames.PingLabels.Latency, value = SettingNames.PingLabels.Latency },
+							{ text = SettingNames.PingLabels.MS, value = SettingNames.PingLabels.MS },
+						},
+					},
 				}
 			},
 			{

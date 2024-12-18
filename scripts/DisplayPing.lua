@@ -29,14 +29,16 @@ local function add_measure(ping)
     end
 end
 
+---@return number
 local function get_average_ping()
     return round(table.average(measures))
 end
 
-mod.get_ping = function()
+---@return number
+mod.get_ping = function(self)
     local ping = last_ping
 
-    if mod:show_average_ping() then
+    if self:show_average_ping() then
         ping = get_average_ping()
     end
 
@@ -45,7 +47,7 @@ mod.get_ping = function()
 end
 
 mod.get_ping_color = function(self)
-    local ping = self.get_ping()
+    local ping = self:get_ping()
 
     if ping >= self:get_high_min_value() then
         return self:get_high_color()

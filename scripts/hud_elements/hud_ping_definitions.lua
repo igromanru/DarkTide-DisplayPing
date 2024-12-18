@@ -19,7 +19,7 @@ return {
             parent = "screen",
             vertical_alignment = "top",
             horizontal_alignment = "center",
-            size = { 50, 40 },
+            size = { 150, 40 },
             position = default_settings.position
         }
     },

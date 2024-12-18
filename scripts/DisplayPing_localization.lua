@@ -8,12 +8,10 @@ local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 local InputUtils = require("scripts/managers/input/input_utils")
 
 local localizations = {
-  mod_name =
-  {
+  mod_name = {
     en = "Display Ping",
   },
-  mod_description =
-  {
+  mod_description = {
     en = "Displays your current ping",
   },
   [SettingNames.EnableMod] = {
@@ -49,6 +47,9 @@ local localizations = {
   [SettingNames.PingFontSize] = {
     en = "Text Size"
   },
+  [SettingNames.PingLabel] = {
+    en = "Label"
+  },
   [SettingNames.PingDefaultColor] = {
     en = "Default Color"
   },
@@ -75,6 +76,18 @@ local localizations = {
   },
   [SettingNames.PingHighMinValue] = {
     en = "High Ping Range Start"
+  },
+  [SettingNames.PingLabels.None] = {
+    en = "- none -"
+  },
+  [SettingNames.PingLabels.Ping] = {
+    en = "Ping"
+  },
+  [SettingNames.PingLabels.Latency] = {
+    en = "Latency"
+  },
+  [SettingNames.PingLabels.MS] = {
+    en = "ms"
   },
   center = {
     en = "Center",

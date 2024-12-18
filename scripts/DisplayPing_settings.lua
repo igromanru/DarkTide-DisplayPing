@@ -27,6 +27,29 @@ mod.get_average_ping_time_frame = function(self)
     return value or 20
 end
 
+---@return integer
+mod.get_font_size = function(self)
+    return self:get(SettingNames.PingFontSize)
+end
+
+---@return string
+mod.get_ping_label = function(self)
+    return self:get(SettingNames.PingLabel)
+end
+
+---@return string
+mod.format_ping = function(self, ping)
+    local ping_label = self:get_ping_label()
+
+    if ping_label == SettingNames.PingLabels.None then
+        return ping
+    elseif ping_label == SettingNames.PingLabels.MS then
+        return string.format("%d %s", ping, self:localize(ping_label))
+    end
+
+    return string.format("%s: %d", self:localize(ping_label), ping)
+end
+
 ---@return integer[]
 mod.get_default_color = function(self)
     local color = mod.Colors.get_color(self:get(SettingNames.PingDefaultColor))
@@ -67,11 +90,6 @@ end
 mod.get_high_min_value = function(self)
     local value = self:get(SettingNames.PingHighMinValue)
     return value or 100
-end
-
----@return integer
-mod.get_font_size = function(self)
-    return self:get(SettingNames.PingFontSize)
 end
 
 ---@return integer

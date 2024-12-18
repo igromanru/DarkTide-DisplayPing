@@ -25,11 +25,11 @@ HudPing.update = function(self, dt, t, ui_renderer, render_settings, input_servi
 end
 
 HudPing._update_ping = function(self)
-	local ping = mod.get_ping()
+	local ping = mod:get_ping()
 	if ping ~= self._ping_cache then
 		self._ping_cache = ping
 		local ping_widget = self._widgets_by_name.ping_widget
-		ping_widget.content.ping_text = ping
+		ping_widget.content.ping_text = mod:format_ping(ping)
 		ping_widget.style.ping_text.text_color = mod:get_ping_color()
 	end
 end
