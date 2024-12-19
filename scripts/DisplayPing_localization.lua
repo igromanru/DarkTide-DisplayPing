@@ -36,7 +36,7 @@ local localizations = {
     en = "Custom HUD Mode"
   },
   [SettingNames.CustomHudModeTooltip] = {
-    en = "Prevents the mod from updating it's position on the screen, which allows Custom HUD to handle it."
+    en = "Prevents the mod from updating it's position on the screen, which allows other mods, like Custom HUD, to manage it."
   },
   [SettingNames.PingVerticalAlignment] = {
     en = "Vertical Alignment"

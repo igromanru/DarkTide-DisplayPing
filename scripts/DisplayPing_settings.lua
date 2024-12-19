@@ -6,6 +6,12 @@
 local mod = get_mod("DisplayPing")
 local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 
+local custom_hud_mod = nil
+
+mod.on_all_mods_loaded = function ()
+    custom_hud_mod = get_mod("custom_hud")
+end
+
 ---@return boolean
 mod.is_enabled = function(self)
     return true --self:get(SettingNames.EnableMod)
@@ -29,7 +35,7 @@ end
 
 ---@return boolean
 mod.is_custom_hud_mode = function(self)
-    return self:get(SettingNames.CustomHudMode)
+    return self:get(SettingNames.CustomHudMode) and custom_hud_mod ~= nil
 end
 
 ---@return integer
