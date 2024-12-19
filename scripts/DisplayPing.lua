@@ -2,12 +2,15 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.2.0
+    Version: 1.3.0
 ]]
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
 
-mod.signal_style_update = true
+local hud_ping_element = {
+    class_name = "HudPing",
+    filename = "DisplayPing/scripts/hud_elements/hud_ping"
+}
 
 local last_ping = 0
 local measures = {}
@@ -32,6 +35,15 @@ end
 ---@return number
 local function get_average_ping()
     return round(table.average(measures))
+end
+
+mod.get_hud_element = function()
+    local ui = Managers.ui
+    if ui then
+        local hud = ui:get_hud()
+        return hud and hud:element(hud_ping_element.class_name)
+    end
+    return nil
 end
 
 ---@return number
@@ -61,12 +73,19 @@ mod.get_ping_color = function(self)
 end
 
 mod.on_setting_changed = function(setting_id)
+    -- local ping_hud = mod.get_hud_element()
+    -- if ping_hud and ping_hud._ui_scenegraph then
+    --     -- local scenegraph = ping_hud._ui_scenegraph["display_ping"]
+    --     ping_hud:set_scenegraph_position("display_ping", mod:get_x_offset(), mod:get_y_offset(), 0,
+	-- 		mod:get_horizontal_alignment(), mod:get_vertical_alignment())
+    -- end
     mod.signal_style_update = true
 end
 
 mod.is_tactical_overlay_active = function()
-    if Managers.ui then
-        local hud = Managers.ui:get_hud()
+    local ui = Managers.ui
+    if ui then
+        local hud = ui:get_hud()
         return hud and hud:tactical_overlay_active()
     end
     return false
@@ -77,8 +96,8 @@ mod.should_show_ping = function()
 end
 
 if not mod:register_hud_element({
-	class_name = "HudPing",
-	filename = "DisplayPing/scripts/hud_elements/hud_ping",
+	class_name = hud_ping_element.class_name,
+	filename = hud_ping_element.filename,
 	use_hud_scale = true,
 	visibility_groups = {
 		"tactical_overlay",

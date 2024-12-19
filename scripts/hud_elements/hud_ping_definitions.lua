@@ -27,6 +27,22 @@ return {
         ping_widget = UIWidget.create_definition({
             {
                 pass_type = "text",
+                style_id = "ping_label_left",
+                value_id = "ping_label_left",
+                value = "",
+                style = {
+                    font_type = "machine_medium",
+                    font_size = 30,
+                    drop_shadow = true,
+                    text_vertical_alignment = "center",
+                    text_horizontal_alignment = "left",
+                    offset = { 0, 0, 0 },
+                    text_color = Color.white(255, true),
+                    default_color = Color.white(255, true)
+                },
+            },
+            {
+                pass_type = "text",
                 style_id = "ping_text",
                 value_id = "ping_text",
                 value = "",
@@ -36,10 +52,27 @@ return {
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",
-                    offset = { 0, 0, 100 },
-                    text_color = Color.white(255, true)
+                    offset = { 0, 0, 0 },
+                    text_color = Color.white(255, true),
+                    default_color = Color.white(255, true)
                 },
-            }
+            },
+            {
+                pass_type = "text",
+                style_id = "ping_label_right",
+                value_id = "ping_label_right",
+                value = "",
+                style = {
+                    font_type = "machine_medium",
+                    font_size = 30,
+                    drop_shadow = true,
+                    text_vertical_alignment = "center",
+                    text_horizontal_alignment = "right",
+                    offset = { 0, 0, 0 },
+                    text_color = Color.white(255, true),
+                    default_color = Color.white(255, true)
+                },
+            },
         }, SCENEGRAPH_ID)
     },
     scenegraph_id = SCENEGRAPH_ID,

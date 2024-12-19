@@ -27,11 +27,11 @@ return {
 	allow_rehooking = true,
 	options = {
 		widgets = {
-			{
-				setting_id = SettingNames.EnableMod,
-				type = "checkbox",
-				default_value = true
-			},
+			-- {
+			-- 	setting_id = SettingNames.EnableMod,
+			-- 	type = "checkbox",
+			-- 	default_value = true
+			-- },
 			{
 				setting_id = SettingNames.TacticalOverlayOnly,
 				type = "checkbox",
@@ -48,6 +48,12 @@ return {
 				type = "numeric",
 				default_value = 20,
 				range = { 5, 60 },
+			},
+			{
+				setting_id = SettingNames.CustomHudMode,
+				tooltip = SettingNames.CustomHudModeTooltip,
+				type = "checkbox",
+				default_value = false
 			},
 			{
 				setting_id = SettingNames.PingHorizontalAlignment,

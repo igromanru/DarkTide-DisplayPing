@@ -8,7 +8,7 @@ local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 
 ---@return boolean
 mod.is_enabled = function(self)
-    return self:get(SettingNames.EnableMod)
+    return true --self:get(SettingNames.EnableMod)
 end
 
 ---@return boolean
@@ -27,6 +27,11 @@ mod.get_average_ping_time_frame = function(self)
     return value or 20
 end
 
+---@return boolean
+mod.is_custom_hud_mode = function(self)
+    return self:get(SettingNames.CustomHudMode)
+end
+
 ---@return integer
 mod.get_font_size = function(self)
     return self:get(SettingNames.PingFontSize)
@@ -35,6 +40,21 @@ end
 ---@return string
 mod.get_ping_label = function(self)
     return self:get(SettingNames.PingLabel)
+end
+
+---@return string
+mod.get_ping_left_label = function(self)
+    return self:get(SettingNames.PingLeftLabel)
+end
+
+---@return string
+mod.get_ping_right_label = function(self)
+    return self:get(SettingNames.PingRightLabel)
+end
+
+---@return string
+mod.get_localized_ping_label = function(self)
+    return self:localize(self:get_ping_label())
 end
 
 ---@return string

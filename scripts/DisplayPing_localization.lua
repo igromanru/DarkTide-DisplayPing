@@ -32,6 +32,12 @@ local localizations = {
   [SettingNames.PingHorizontalAlignment] = {
     en = "Horizontal Alignment"
   },
+  [SettingNames.CustomHudMode] = {
+    en = "Custom HUD Mode"
+  },
+  [SettingNames.CustomHudModeTooltip] = {
+    en = "Prevents the mod from updating it's position on the screen, which allows Custom HUD to handle it."
+  },
   [SettingNames.PingVerticalAlignment] = {
     en = "Vertical Alignment"
   },
@@ -48,6 +54,12 @@ local localizations = {
     en = "Text Size"
   },
   [SettingNames.PingLabel] = {
+    en = "Label"
+  },
+  [SettingNames.PingLeftLabel] = {
+    en = "Label"
+  },
+  [SettingNames.PingRightLabel] = {
     en = "Label"
   },
   [SettingNames.PingDefaultColor] = {
