@@ -30,7 +30,7 @@ HudPing._update_ping = function(self)
 	if ping ~= self._ping_cache then
 		self._ping_cache = ping
 		local ping_widget = self._widgets_by_name.ping_widget
-		ping_widget.content.ping_text = ping --mod:format_ping(ping)
+		ping_widget.content.ping_text = ping
 		ping_widget.style.ping_text.text_color = mod:get_ping_color()
 	end
 end
@@ -69,7 +69,7 @@ HudPing._update_style = function(self, ui_renderer)
 			ping_widget_style.ping_label_left.offset[2] = label_y_offset
 		end
 		
-		self:_auto_resize(ui_renderer, ping_widget_content, ping_widget_style, selected_label_id, label_offset)
+		self:_auto_resize(ui_renderer, ping_widget, selected_label_id, label_offset)
 		
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
@@ -78,15 +78,28 @@ HudPing._update_style = function(self, ui_renderer)
 	end
 end
 
-HudPing._auto_resize = function(self, ui_renderer, ping_widget_content, ping_widget_style, selected_label_id, label_offset)
-	local ping_text = tostring(ping_widget_content.ping_text)
-	ping_text = string.rep("0", 3 - #ping_text) .. ping_text
-	local scenegraph_width, _ = UIRenderer.text_size(ui_renderer, ping_text, ping_widget_style.ping_text.font_type, ping_widget_style.ping_text.font_size)
-	local label_width, _ = UIRenderer.text_size(ui_renderer, ping_widget_content[selected_label_id], ping_widget_style[selected_label_id].font_type, ping_widget_style[selected_label_id].font_size)
+---@param ui_renderer UIRenderer
+---@param widget table
+---@param element_id string
+---@param text string?
+---@return number width, number height, number min, number caret
+local function calculate_text_size(ui_renderer, widget, element_id, text)
+	text = text or widget.content[element_id]
+	local text_style = widget.style[element_id]
+	
+	local width, height, min, caret = UIRenderer.text_size(ui_renderer, text, text_style.font_type, text_style.font_size, text_style.size)
+	return math.ceil(width), math.ceil(height), min, caret
+end
+
+HudPing._auto_resize = function(self, ui_renderer, widget, selected_label_id, label_offset)
+	-- "1888" is a workaround to create enough space around
+	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
+	local label_width = calculate_text_size(ui_renderer, widget, selected_label_id)
 	if label_width > 0 then
 		scenegraph_width = scenegraph_width + (label_width + label_offset) * 2
 	end
-	scenegraph_width = math.max(scenegraph_width, 40)
+	-- mod:echo("scenegraph_width: %f", scenegraph_width)
+	-- scenegraph_width = math.max(scenegraph_width, 40)
 	self:_set_scenegraph_size(HudPingDefinitions.scenegraph_id, scenegraph_width)
 end
 
