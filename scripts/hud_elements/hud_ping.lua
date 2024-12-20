@@ -5,6 +5,7 @@
 ]]
 local mod = get_mod("DisplayPing")
 
+local UIRenderer = require("scripts/managers/ui/ui_renderer")
 local HudPingDefinitions = mod:io_dofile("DisplayPing/scripts/hud_elements/hud_ping_definitions")
 
 ---@class HudPing: HudElementBase
@@ -19,7 +20,7 @@ end
 
 HudPing.update = function(self, dt, t, ui_renderer, render_settings, input_service)
 	self:_update_ping()
-	self:_update_style()
+	self:_update_style(ui_renderer)
 
 	HudPing.super.update(self, dt, t, ui_renderer, render_settings, input_service)
 end
@@ -34,7 +35,7 @@ HudPing._update_ping = function(self)
 	end
 end
 
-HudPing._update_style = function(self)
+HudPing._update_style = function(self, ui_renderer)
 	if mod.signal_style_update then
 		mod.signal_style_update = false
 		local ping_widget = self._widgets_by_name.ping_widget
@@ -47,6 +48,7 @@ HudPing._update_style = function(self)
 		local label_default_color = mod:get_label_default_color()
 		local label_offset = mod:get_label_offset_to_ping()
 		local label_y_offset = mod:get_label_y_offset()
+		local selected_label_id = "ping_label_left"
 
 		ping_widget_style.ping_text.font_size = ping_font_size
 		ping_widget_style.ping_text.text_color = mod:get_ping_color()
@@ -57,6 +59,7 @@ HudPing._update_style = function(self)
 			ping_widget_style.ping_label_right.font_size = label_font_size
 			ping_widget_style.ping_label_right.text_color = label_default_color
 			ping_widget_style.ping_label_right.offset[2] = label_y_offset
+			selected_label_id = "ping_label_right"
 		else
 			-- Left label is chosen
 			ping_widget_content.ping_label_right = ""
@@ -65,8 +68,8 @@ HudPing._update_style = function(self)
 			ping_widget_style.ping_label_left.text_color = label_default_color
 			ping_widget_style.ping_label_left.offset[2] = label_y_offset
 		end
-
-		self:_auto_resize(ping_font_size, ping_label, label_font_size, label_offset)
+		
+		self:_auto_resize(ui_renderer, ping_widget_content, ping_widget_style, selected_label_id, label_offset)
 		
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
@@ -75,10 +78,11 @@ HudPing._update_style = function(self)
 	end
 end
 
-local font_to_length_scale = 0.5
-HudPing._auto_resize = function(self, ping_font_size, ping_label, label_font_size, label_offset)
-	local scenegraph_width = ping_font_size * font_to_length_scale * 3
-	local label_width = label_font_size * font_to_length_scale * string.len(ping_label)
+HudPing._auto_resize = function(self, ui_renderer, ping_widget_content, ping_widget_style, selected_label_id, label_offset)
+	local ping_text = tostring(ping_widget_content.ping_text)
+	ping_text = string.rep("0", 3 - #ping_text) .. ping_text
+	local scenegraph_width, _ = UIRenderer.text_size(ui_renderer, ping_text, ping_widget_style.ping_text.font_type, ping_widget_style.ping_text.font_size)
+	local label_width, _ = UIRenderer.text_size(ui_renderer, ping_widget_content[selected_label_id], ping_widget_style[selected_label_id].font_type, ping_widget_style[selected_label_id].font_size)
 	if label_width > 0 then
 		scenegraph_width = scenegraph_width + (label_width + label_offset) * 2
 	end
