@@ -49,16 +49,6 @@ mod.get_ping_label = function(self)
 end
 
 ---@return string
-mod.get_ping_left_label = function(self)
-    return self:get(SettingNames.PingLeftLabel)
-end
-
----@return string
-mod.get_ping_right_label = function(self)
-    return self:get(SettingNames.PingRightLabel)
-end
-
----@return string
 mod.get_localized_ping_label = function(self)
     return self:localize(self:get_ping_label())
 end
@@ -74,6 +64,23 @@ mod.format_ping = function(self, ping)
     end
 
     return string.format("%s: %d", self:localize(ping_label), ping)
+end
+
+---@return integer
+mod.get_label_font_size = function(self)
+    return self:get(SettingNames.LabelFontSize)
+end
+
+---@return integer[]
+mod.get_label_default_color = function(self)
+    local color = mod.Colors.get_color(self:get(SettingNames.LabelDefaultColor))
+    return color or Color.white(255, true)
+end
+
+---0 = left, 1 = right
+---@return integer
+mod.get_label_side_position = function(self)
+    return self:get(SettingNames.LabelSidePosition)
 end
 
 ---@return integer[]

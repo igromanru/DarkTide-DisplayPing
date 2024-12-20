@@ -27,11 +27,6 @@ return {
 	allow_rehooking = true,
 	options = {
 		widgets = {
-			-- {
-			-- 	setting_id = SettingNames.EnableMod,
-			-- 	type = "checkbox",
-			-- 	default_value = true
-			-- },
 			{
 				setting_id = SettingNames.TacticalOverlayOnly,
 				type = "checkbox",
@@ -104,6 +99,25 @@ return {
 						options = clone_color_options(),
 						default_value = "white",
 					},
+				}
+			},
+			{
+				setting_id = SettingNames.LabelStyleGroup,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.LabelFontSize,
+						type = "numeric",
+						default_value = 30,
+						range = { 10, 50 },
+					},
+					{
+						setting_id = SettingNames.LabelDefaultColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
+					},
 					{
 						setting_id = SettingNames.PingLabel,
 						type = "dropdown",
@@ -113,6 +127,15 @@ return {
 							{ text = SettingNames.PingLabels.Ping, value = SettingNames.PingLabels.Ping },
 							{ text = SettingNames.PingLabels.Latency, value = SettingNames.PingLabels.Latency },
 							{ text = SettingNames.PingLabels.MS, value = SettingNames.PingLabels.MS },
+						},
+					},
+					{
+						setting_id = SettingNames.LabelSidePosition,
+						type = "dropdown",
+						default_value = SettingNames.LabelSide.Left,
+						options = {
+							{ text = SettingNames.LabelSide.Left, value = 0 },
+							{ text = SettingNames.LabelSide.Right, value = 1 },
 						},
 					},
 				}

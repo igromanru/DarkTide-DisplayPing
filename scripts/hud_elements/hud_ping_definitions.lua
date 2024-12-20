@@ -37,8 +37,7 @@ return {
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "left",
                     offset = { 0, 0, 0 },
-                    text_color = Color.white(255, true),
-                    default_color = Color.white(255, true)
+                    text_color = Color.white(255, true)
                 },
             },
             {
@@ -53,8 +52,7 @@ return {
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",
                     offset = { 0, 0, 0 },
-                    text_color = Color.white(255, true),
-                    default_color = Color.white(255, true)
+                    text_color = Color.white(255, true)
                 },
             },
             {
@@ -69,8 +67,7 @@ return {
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "right",
                     offset = { 0, 0, 0 },
-                    text_color = Color.white(255, true),
-                    default_color = Color.white(255, true)
+                    text_color = Color.white(255, true)
                 },
             },
         }, SCENEGRAPH_ID)

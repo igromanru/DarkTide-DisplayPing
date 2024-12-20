@@ -48,18 +48,12 @@ local localizations = {
     en = "Y Offset"
   },
   [SettingNames.PingStyleGroup] = {
-    en = "Default Style Settings"
+    en = "Ping Style Settings"
   },
   [SettingNames.PingFontSize] = {
     en = "Text Size"
   },
   [SettingNames.PingLabel] = {
-    en = "Label"
-  },
-  [SettingNames.PingLeftLabel] = {
-    en = "Label"
-  },
-  [SettingNames.PingRightLabel] = {
     en = "Label"
   },
   [SettingNames.PingDefaultColor] = {
@@ -100,6 +94,18 @@ local localizations = {
   },
   [SettingNames.PingLabels.MS] = {
     en = "ms"
+  },
+  [SettingNames.LabelStyleGroup] = {
+    en = "Label Style Settings"
+  },
+  [SettingNames.LabelFontSize] = {
+    en = "Text Size"
+  },
+  [SettingNames.LabelDefaultColor] = {
+    en = "Color"
+  },
+  [SettingNames.LabelSidePosition] = {
+    en = "Position"
   },
   center = {
     en = "Center",

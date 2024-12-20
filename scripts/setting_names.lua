@@ -21,8 +21,6 @@ local SettingNames = {
     PingFontSize = "ping_font_size",
     PingDefaultColor = "ping_default_color",
     PingLabel = "ping_label",
-    PingLeftLabel = "ping_label_left",
-    PingRightLabel = "ping_label_right",
     PingRangeIndicatorGroup = "ping_range_indicator_group",
     PingRangeIndicator = "ping_range_indicator",
     PingLowColor = "ping_low_color",
@@ -36,7 +34,15 @@ local SettingNames = {
         Ping = "ping",
         Latency = "latency",
         MS = "ms",
-    }
+    },
+    LabelStyleGroup = "label_style_group",
+    LabelFontSize = "label_font_size",
+    LabelDefaultColor = "label_default_color",
+    LabelSidePosition = "label_side_position",
+    LabelSide = {
+        Left = "left",
+        Right = "right",
+    },
 }
 
 return SettingNames

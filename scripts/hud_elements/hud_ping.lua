@@ -52,6 +52,9 @@ HudPing._update_style = function(self)
 	end
 end
 
+HudPing._auto_resize = function(self)
+end
+
 HudPing.draw = function(self, dt, t, ui_renderer, render_settings, input_service)
 	if mod:should_show_ping() then
 		HudPing.super.draw(self, dt, t, ui_renderer, render_settings, input_service)
