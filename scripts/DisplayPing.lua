@@ -37,14 +37,14 @@ local function get_average_ping()
     return round(table.average(measures))
 end
 
-mod.get_hud_element = function()
-    local ui = Managers.ui
-    if ui then
-        local hud = ui:get_hud()
-        return hud and hud:element(hud_ping_element.class_name)
-    end
-    return nil
-end
+-- mod.get_hud_element = function()
+--     local ui = Managers.ui
+--     if ui then
+--         local hud = ui:get_hud()
+--         return hud and hud:element(hud_ping_element.class_name)
+--     end
+--     return nil
+-- end
 
 ---@return number
 mod.get_ping = function(self)
@@ -73,12 +73,6 @@ mod.get_ping_color = function(self)
 end
 
 mod.on_setting_changed = function(setting_id)
-    -- local ping_hud = mod.get_hud_element()
-    -- if ping_hud and ping_hud._ui_scenegraph then
-    --     -- local scenegraph = ping_hud._ui_scenegraph["display_ping"]
-    --     ping_hud:set_scenegraph_position("display_ping", mod:get_x_offset(), mod:get_y_offset(), 0,
-	-- 		mod:get_horizontal_alignment(), mod:get_vertical_alignment())
-    -- end
     mod.signal_style_update = true
 end
 

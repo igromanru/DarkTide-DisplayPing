@@ -29,9 +29,8 @@ HudPing._update_ping = function(self)
 	if ping ~= self._ping_cache then
 		self._ping_cache = ping
 		local ping_widget = self._widgets_by_name.ping_widget
-		ping_widget.content.ping_text = mod:format_ping(ping)
+		ping_widget.content.ping_text = ping --mod:format_ping(ping)
 		ping_widget.style.ping_text.text_color = mod:get_ping_color()
-		-- ping_widget.content.ping_label_left = mod:get_localized_ping_label()
 	end
 end
 
@@ -39,12 +38,24 @@ HudPing._update_style = function(self)
 	if mod.signal_style_update then
 		mod.signal_style_update = false
 		local ping_widget_style = self._widgets_by_name.ping_widget.style
+		local ping_widget_content= self._widgets_by_name.ping_widget.content
 		ping_widget_style.ping_text.font_size = mod:get_font_size()
 		ping_widget_style.ping_text.text_color = mod:get_ping_color()
-		-- ping_widget_style.ping_label_left.font_size = mod:get_font_size()
-		-- ping_widget_style.ping_label_left.text_color = mod:get_default_color()
-		-- ping_widget_style.ping_label_right.font_size = mod:get_font_size()
-		-- ping_widget_style.ping_label_right.text_color = mod:get_default_color()
+		if mod:is_label_side_right() then
+			-- Right label is chosen
+			ping_widget_content.ping_label_left = ""
+			ping_widget_content.ping_label_right = mod:get_localized_ping_label()
+			ping_widget_style.ping_label_right.font_size = mod:get_label_font_size()
+			ping_widget_style.ping_label_right.text_color = mod:get_label_default_color()
+		else
+			-- Left label is chosen
+			ping_widget_content.ping_label_right = ""
+			ping_widget_content.ping_label_left = mod:get_localized_ping_label()
+			ping_widget_style.ping_label_left.font_size = mod:get_label_font_size()
+			ping_widget_style.ping_label_left.text_color = mod:get_label_default_color()
+		end
+
+		
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
 				mod:get_horizontal_alignment(), mod:get_vertical_alignment())
@@ -53,6 +64,7 @@ HudPing._update_style = function(self)
 end
 
 HudPing._auto_resize = function(self)
+
 end
 
 HudPing.draw = function(self, dt, t, ui_renderer, render_settings, input_service)

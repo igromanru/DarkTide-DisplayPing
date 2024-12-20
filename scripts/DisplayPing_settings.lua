@@ -50,7 +50,11 @@ end
 
 ---@return string
 mod.get_localized_ping_label = function(self)
-    return self:localize(self:get_ping_label())
+    local label = self:get_ping_label()
+    if not label or label == SettingNames.PingLabels.None then
+        return ""
+    end
+    return self:localize(label)
 end
 
 ---@return string
@@ -77,10 +81,14 @@ mod.get_label_default_color = function(self)
     return color or Color.white(255, true)
 end
 
----0 = left, 1 = right
----@return integer
+---@return string # Returns "left" or "right"
 mod.get_label_side_position = function(self)
     return self:get(SettingNames.LabelSidePosition)
+end
+
+---@return boolean
+mod.is_label_side_right = function(self)
+    return self:get_label_side_position() == "right"
 end
 
 ---@return integer[]

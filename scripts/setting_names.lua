@@ -39,6 +39,7 @@ local SettingNames = {
     LabelFontSize = "label_font_size",
     LabelDefaultColor = "label_default_color",
     LabelSidePosition = "label_side_position",
+    LabelOffsetToPing = "label_offset_to_ping",
     LabelSide = {
         Left = "left",
         Right = "right",

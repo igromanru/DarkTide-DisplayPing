@@ -107,18 +107,6 @@ return {
 				sub_widgets =
 				{
 					{
-						setting_id = SettingNames.LabelFontSize,
-						type = "numeric",
-						default_value = 30,
-						range = { 10, 50 },
-					},
-					{
-						setting_id = SettingNames.LabelDefaultColor,
-						type = "dropdown",
-						options = clone_color_options(),
-						default_value = "white",
-					},
-					{
 						setting_id = SettingNames.PingLabel,
 						type = "dropdown",
 						default_value = SettingNames.PingLabels.None,
@@ -130,12 +118,30 @@ return {
 						},
 					},
 					{
+						setting_id = SettingNames.LabelFontSize,
+						type = "numeric",
+						default_value = 30,
+						range = { 10, 50 },
+					},
+					{
+						setting_id = SettingNames.LabelOffsetToPing,
+						type = "numeric",
+						default_value = 0,
+						range = { 0, 50 },
+					},
+					{
+						setting_id = SettingNames.LabelDefaultColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
+					},
+					{
 						setting_id = SettingNames.LabelSidePosition,
 						type = "dropdown",
 						default_value = SettingNames.LabelSide.Left,
 						options = {
-							{ text = SettingNames.LabelSide.Left, value = 0 },
-							{ text = SettingNames.LabelSide.Right, value = 1 },
+							{ text = SettingNames.LabelSide.Left, value = SettingNames.LabelSide.Left },
+							{ text = SettingNames.LabelSide.Right, value = SettingNames.LabelSide.Right },
 						},
 					},
 				}

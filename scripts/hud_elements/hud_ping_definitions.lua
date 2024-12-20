@@ -36,7 +36,7 @@ return {
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "left",
-                    offset = { 0, 0, 0 },
+                    offset = { 0, 0, 1 },
                     text_color = Color.white(255, true)
                 },
             },
@@ -51,7 +51,7 @@ return {
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",
-                    offset = { 0, 0, 0 },
+                    offset = { 0, 0, 2 },
                     text_color = Color.white(255, true)
                 },
             },
@@ -66,7 +66,7 @@ return {
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "right",
-                    offset = { 0, 0, 0 },
+                    offset = { 0, 0, 1 },
                     text_color = Color.white(255, true)
                 },
             },

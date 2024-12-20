@@ -107,6 +107,9 @@ local localizations = {
   [SettingNames.LabelSidePosition] = {
     en = "Position"
   },
+  [SettingNames.LabelOffsetToPing] = {
+    en = "Gab Offset to Ping"
+  },
   center = {
     en = "Center",
     de = "Mitte",
