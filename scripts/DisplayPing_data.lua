@@ -127,7 +127,13 @@ return {
 						setting_id = SettingNames.LabelOffsetToPing,
 						type = "numeric",
 						default_value = 0,
-						range = { 0, 50 },
+						range = { -30, 30 },
+					},
+					{
+						setting_id = SettingNames.LabelYOffset,
+						type = "numeric",
+						default_value = 0,
+						range = { -10, 10 },
 					},
 					{
 						setting_id = SettingNames.LabelDefaultColor,

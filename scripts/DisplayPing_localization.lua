@@ -108,7 +108,10 @@ local localizations = {
     en = "Position"
   },
   [SettingNames.LabelOffsetToPing] = {
-    en = "Gab Offset to Ping"
+    en = "Gap size to Ping"
+  },
+  [SettingNames.LabelYOffset] = {
+    en = "Y Offset"
   },
   center = {
     en = "Center",
