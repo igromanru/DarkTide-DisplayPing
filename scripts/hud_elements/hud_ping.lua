@@ -88,7 +88,7 @@ local function calculate_text_size(ui_renderer, widget, element_id, text)
 	local text_style = widget.style[element_id]
 	
 	local width, height, min, caret = UIRenderer.text_size(ui_renderer, text, text_style.font_type, text_style.font_size, text_style.size)
-	return math.ceil(width), math.ceil(height), min, caret
+	return mod.round(width), mod.round(height), min, caret
 end
 
 HudPing._auto_resize = function(self, ui_renderer, widget, selected_label_id, label_offset)

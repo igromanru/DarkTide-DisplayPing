@@ -20,6 +20,8 @@ local function round(num, decimal_places)
     return math.floor(num * mult + 0.5) / mult
 end
 
+mod.round = round
+
 local function add_measure(ping)
     if ping then
         table.insert(measures, ping)

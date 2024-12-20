@@ -105,10 +105,10 @@ local localizations = {
     en = "Color"
   },
   [SettingNames.LabelSidePosition] = {
-    en = "Position"
+    en = "Position relative to Ping"
   },
   [SettingNames.LabelOffsetToPing] = {
-    en = "Gap size to Ping"
+    en = "Gap size between Ping"
   },
   [SettingNames.LabelYOffset] = {
     en = "Y Offset"

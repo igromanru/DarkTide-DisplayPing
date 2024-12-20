@@ -118,6 +118,15 @@ return {
 						},
 					},
 					{
+						setting_id = SettingNames.LabelSidePosition,
+						type = "dropdown",
+						default_value = SettingNames.LabelSide.Left,
+						options = {
+							{ text = SettingNames.LabelSide.Left, value = SettingNames.LabelSide.Left },
+							{ text = SettingNames.LabelSide.Right, value = SettingNames.LabelSide.Right },
+						},
+					},
+					{
 						setting_id = SettingNames.LabelFontSize,
 						type = "numeric",
 						default_value = 30,
@@ -140,15 +149,6 @@ return {
 						type = "dropdown",
 						options = clone_color_options(),
 						default_value = "white",
-					},
-					{
-						setting_id = SettingNames.LabelSidePosition,
-						type = "dropdown",
-						default_value = SettingNames.LabelSide.Left,
-						options = {
-							{ text = SettingNames.LabelSide.Left, value = SettingNames.LabelSide.Left },
-							{ text = SettingNames.LabelSide.Right, value = SettingNames.LabelSide.Right },
-						},
 					},
 				}
 			},
