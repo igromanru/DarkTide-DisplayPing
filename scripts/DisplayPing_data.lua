@@ -145,6 +145,11 @@ return {
 						range = { -10, 10 },
 					},
 					{
+						setting_id = SettingNames.LabelUsePingColor,
+						type = "checkbox",
+						default_value = false
+					},
+					{
 						setting_id = SettingNames.LabelDefaultColor,
 						type = "dropdown",
 						options = clone_color_options(),

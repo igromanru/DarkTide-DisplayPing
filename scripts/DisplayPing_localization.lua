@@ -113,6 +113,9 @@ local localizations = {
   [SettingNames.LabelYOffset] = {
     en = "Y Offset"
   },
+  [SettingNames.LabelUsePingColor] = {
+    en = "Match Ping's Color"
+  },
   center = {
     en = "Center",
     de = "Mitte",

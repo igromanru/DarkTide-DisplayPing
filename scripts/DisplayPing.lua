@@ -2,7 +2,7 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.4.1
+    Version: 1.5.0
 ]]
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
@@ -72,6 +72,13 @@ mod.get_ping_color = function(self)
     end
 
     return self:get_default_color()
+end
+
+mod.get_label_color = function(self)
+    if self:should_label_use_ping_color() then
+        return self:get_ping_color()
+    end
+    return self:get_label_default_color()
 end
 
 mod.on_setting_changed = function(setting_id)

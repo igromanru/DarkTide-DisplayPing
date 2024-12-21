@@ -85,6 +85,11 @@ mod.get_label_y_offset = function(self)
     return self:get(SettingNames.LabelYOffset)
 end
 
+---@return boolean
+mod.should_label_use_ping_color = function(self)
+    return self:get(SettingNames.LabelUsePingColor)
+end
+
 ---@return integer[]
 mod.get_label_default_color = function(self)
     local color = mod.Colors.get_color(self:get(SettingNames.LabelDefaultColor))

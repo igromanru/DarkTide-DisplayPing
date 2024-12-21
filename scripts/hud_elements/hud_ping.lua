@@ -32,6 +32,9 @@ HudPing._update_ping = function(self)
 		local ping_widget = self._widgets_by_name.ping_widget
 		ping_widget.content.ping_text = ping
 		ping_widget.style.ping_text.text_color = mod:get_ping_color()
+		local label_color = mod:get_label_color()
+		ping_widget.style.ping_label_left.text_color = label_color
+		ping_widget.style.ping_label_right.text_color = label_color
 	end
 end
 
@@ -45,7 +48,7 @@ HudPing._update_style = function(self, ui_renderer)
 		local ping_font_size = mod:get_font_size()
 		local label_font_size = mod:get_label_font_size()
 		local ping_label = mod:get_localized_ping_label()
-		local label_default_color = mod:get_label_default_color()
+		local label_color = mod:get_label_color()
 		local label_offset = mod:get_label_offset_to_ping()
 		local label_y_offset = mod:get_label_y_offset()
 		local selected_label_id = "ping_label_left"
@@ -57,7 +60,7 @@ HudPing._update_style = function(self, ui_renderer)
 			ping_widget_content.ping_label_left = ""
 			ping_widget_content.ping_label_right = ping_label
 			ping_widget_style.ping_label_right.font_size = label_font_size
-			ping_widget_style.ping_label_right.text_color = label_default_color
+			ping_widget_style.ping_label_right.text_color = label_color
 			ping_widget_style.ping_label_right.offset[2] = label_y_offset
 			selected_label_id = "ping_label_right"
 		else
@@ -65,7 +68,7 @@ HudPing._update_style = function(self, ui_renderer)
 			ping_widget_content.ping_label_right = ""
 			ping_widget_content.ping_label_left = ping_label
 			ping_widget_style.ping_label_left.font_size = label_font_size
-			ping_widget_style.ping_label_left.text_color = label_default_color
+			ping_widget_style.ping_label_left.text_color = label_color
 			ping_widget_style.ping_label_left.offset[2] = label_y_offset
 		end
 		
@@ -93,7 +96,7 @@ end
 
 HudPing._auto_resize = function(self, ui_renderer, widget, selected_label_id, label_offset)
 	-- "1888" is a workaround to create enough space around
-	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
+	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "888")
 	local label_width = calculate_text_size(ui_renderer, widget, selected_label_id)
 	if label_width > 0 then
 		scenegraph_width = scenegraph_width + (label_width + label_offset) * 2
