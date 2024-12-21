@@ -29,17 +29,20 @@ local localizations = {
   [SettingNames.ShowAveragePingTimeFrame] = {
     en = "Average Ping time frame in seconds"
   },
-  [SettingNames.PingHorizontalAlignment] = {
-    en = "Horizontal Alignment"
+  [SettingNames.PositionOnScreen] = {
+    en = "Position on Screen"
   },
   [SettingNames.CustomHudMode] = {
     en = "Custom HUD Mode"
   },
-  [SettingNames.CustomHudModeTooltip] = {
-    en = "Prevents the mod from updating it's position on the screen, which allows other mods, like Custom HUD, to manage it."
+  [SettingNames.PingHorizontalAlignment] = {
+    en = "Horizontal Alignment"
   },
   [SettingNames.PingVerticalAlignment] = {
     en = "Vertical Alignment"
+  },
+  [SettingNames.CustomHudModeTooltip] = {
+    en = "Prevents the mod from updating it's position on the screen, which allows other mods, like Custom HUD, to manage it."
   },
   [SettingNames.PingXOffset] = {
     en = "X Offset"

@@ -11,6 +11,7 @@ local SettingNames = {
     ShowAveragePing = "show_average_ping",
     ShowAveragePingTooltip = "show_average_ping_tooltip",
     ShowAveragePingTimeFrame = "average_ping_timeframe",
+    PositionOnScreen = "position_on_screen",
     CustomHudMode = "custom_hud_mode",
     CustomHudModeTooltip = "custom_hud_mode_tooltip",
     PingHorizontalAlignment = "ping_horizontal_alignment",

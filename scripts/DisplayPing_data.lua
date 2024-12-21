@@ -45,42 +45,49 @@ return {
 				range = { 5, 60 },
 			},
 			{
-				setting_id = SettingNames.CustomHudMode,
-				tooltip = SettingNames.CustomHudModeTooltip,
-				type = "checkbox",
-				default_value = false
-			},
-			{
-				setting_id = SettingNames.PingHorizontalAlignment,
-				type = "dropdown",
-				default_value = "center",
-				options = {
-					{ text = "center", value = "center" },
-					{ text = "left",   value = "left" },
-					{ text = "right",  value = "right" },
-				},
-			},
-			{
-				setting_id = SettingNames.PingVerticalAlignment,
-				type = "dropdown",
-				default_value = "top",
-				options = {
-					{ text = "center", value = "center" },
-					{ text = "top",    value = "top" },
-					{ text = "bottom", value = "bottom" },
-				},
-			},
-			{
-				setting_id = SettingNames.PingXOffset,
-				type = "numeric",
-				default_value = 0,
-				range = { -300, 300 },
-			},
-			{
-				setting_id = SettingNames.PingYOffset,
-				type = "numeric",
-				default_value = 20,
-				range = { -300, 300 },
+				setting_id = SettingNames.PositionOnScreen,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.CustomHudMode,
+						tooltip = SettingNames.CustomHudModeTooltip,
+						type = "checkbox",
+						default_value = false
+					},
+					{
+						setting_id = SettingNames.PingHorizontalAlignment,
+						type = "dropdown",
+						default_value = "center",
+						options = {
+							{ text = "center", value = "center" },
+							{ text = "left",   value = "left" },
+							{ text = "right",  value = "right" },
+						},
+					},
+					{
+						setting_id = SettingNames.PingVerticalAlignment,
+						type = "dropdown",
+						default_value = "top",
+						options = {
+							{ text = "center", value = "center" },
+							{ text = "top",    value = "top" },
+							{ text = "bottom", value = "bottom" },
+						},
+					},
+					{
+						setting_id = SettingNames.PingXOffset,
+						type = "numeric",
+						default_value = 0,
+						range = { -300, 300 },
+					},
+					{
+						setting_id = SettingNames.PingYOffset,
+						type = "numeric",
+						default_value = 20,
+						range = { -300, 300 },
+					},
+				}
 			},
 			{
 				setting_id = SettingNames.PingStyleGroup,
