@@ -4,6 +4,7 @@
     Mod Name: Display Ping
 ]]
 local mod = get_mod("DisplayPing")
+local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 
 local UIRenderer = require("scripts/managers/ui/ui_renderer")
 local HudPingDefinitions = mod:io_dofile("DisplayPing/scripts/hud_elements/hud_ping_definitions")
@@ -32,9 +33,7 @@ HudPing._update_ping = function(self)
 		local ping_widget = self._widgets_by_name.ping_widget
 		ping_widget.content.ping_text = ping
 		ping_widget.style.ping_text.text_color = mod:get_ping_color()
-		local label_color = mod:get_label_color()
-		ping_widget.style.ping_label_left.text_color = label_color
-		ping_widget.style.ping_label_right.text_color = label_color
+		ping_widget.style.ping_label.text_color = mod:get_label_color()
 	end
 end
 
@@ -45,34 +44,21 @@ HudPing._update_style = function(self, ui_renderer)
 		local ping_widget_style = ping_widget.style
 		local ping_widget_content = ping_widget.content
 
-		local ping_font_size = mod:get_font_size()
-		local label_font_size = mod:get_label_font_size()
-		local ping_label = mod:get_localized_ping_label()
-		local label_color = mod:get_label_color()
-		local label_offset = mod:get_label_offset_to_ping()
-		local label_y_offset = mod:get_label_y_offset()
-		local selected_label_id = "ping_label_left"
-
-		ping_widget_style.ping_text.font_size = ping_font_size
+		-- Ping
+		ping_widget_style.ping_text.font_size = mod:get_font_size()
 		ping_widget_style.ping_text.text_color = mod:get_ping_color()
+		-- Label
+		ping_widget_content.ping_label =  mod:get_localized_ping_label()
+		ping_widget_style.ping_label.font_size = mod:get_label_font_size()
+		ping_widget_style.ping_label.text_color = mod:get_label_color()
+		ping_widget_style.ping_label.offset[2] = mod:get_label_y_offset()
 		if mod:is_label_side_right() then
-			-- Right label is chosen
-			ping_widget_content.ping_label_left = ""
-			ping_widget_content.ping_label_right = ping_label
-			ping_widget_style.ping_label_right.font_size = label_font_size
-			ping_widget_style.ping_label_right.text_color = label_color
-			ping_widget_style.ping_label_right.offset[2] = label_y_offset
-			selected_label_id = "ping_label_right"
+			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.LabelSide.Right
 		else
-			-- Left label is chosen
-			ping_widget_content.ping_label_right = ""
-			ping_widget_content.ping_label_left = ping_label
-			ping_widget_style.ping_label_left.font_size = label_font_size
-			ping_widget_style.ping_label_left.text_color = label_color
-			ping_widget_style.ping_label_left.offset[2] = label_y_offset
+			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.LabelSide.Left
 		end
 		
-		self:_auto_resize(ui_renderer, ping_widget, selected_label_id, label_offset)
+		self:_auto_resize(ui_renderer, ping_widget, mod:get_label_offset_to_ping())
 		
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
@@ -94,10 +80,10 @@ local function calculate_text_size(ui_renderer, widget, element_id, text)
 	return mod.round(width), mod.round(height), min, caret
 end
 
-HudPing._auto_resize = function(self, ui_renderer, widget, selected_label_id, label_offset)
+HudPing._auto_resize = function(self, ui_renderer, widget, label_offset)
 	-- "1888" is a workaround to create enough space around
 	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
-	local label_width = calculate_text_size(ui_renderer, widget, selected_label_id)
+	local label_width = calculate_text_size(ui_renderer, widget, "ping_label")
 	if label_width > 0 then
 		scenegraph_width = scenegraph_width + (label_width + label_offset) * 2
 	end
