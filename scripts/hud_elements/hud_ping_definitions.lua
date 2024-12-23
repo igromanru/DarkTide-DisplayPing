@@ -48,6 +48,7 @@ return {
                 style = {
                     font_type = "machine_medium",
                     font_size = 30,
+                    -- line_spacing = 1.0,
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",

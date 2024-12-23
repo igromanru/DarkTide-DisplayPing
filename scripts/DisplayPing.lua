@@ -2,7 +2,7 @@
     Author: Igromanru
     Date: 16.12.2024
     Mod Name: Display Ping
-    Version: 1.5.1
+    Version: 1.5.2
 ]]
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")

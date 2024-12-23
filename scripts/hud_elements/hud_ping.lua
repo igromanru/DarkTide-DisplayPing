@@ -96,13 +96,13 @@ end
 
 HudPing._auto_resize = function(self, ui_renderer, widget, selected_label_id, label_offset)
 	-- "1888" is a workaround to create enough space around
-	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "888")
+	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
 	local label_width = calculate_text_size(ui_renderer, widget, selected_label_id)
 	if label_width > 0 then
 		scenegraph_width = scenegraph_width + (label_width + label_offset) * 2
 	end
 	-- mod:echo("scenegraph_width: %f", scenegraph_width)
-	-- scenegraph_width = math.max(scenegraph_width, 40)
+	scenegraph_width = math.max(scenegraph_width, 40)
 	self:_set_scenegraph_size(HudPingDefinitions.scenegraph_id, scenegraph_width)
 end
 
