@@ -23,7 +23,7 @@ end
 mod.round = round
 
 local function add_measure(ping)
-    if ping then
+    if type(ping) == "number" then
         table.insert(measures, ping)
         local remove_count = #measures - mod:get_average_ping_time_frame()
         if remove_count > 0 then
@@ -115,7 +115,7 @@ if not mod:register_hud_element({
     mod:error("Failed to register Display Ping widget")
 end
 
-mod:hook_safe(CLASS.PingReporter, "_take_measure", function(self, dt)
+mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
     last_ping = self._measures[#self._measures]
     add_measure(last_ping)
 end)

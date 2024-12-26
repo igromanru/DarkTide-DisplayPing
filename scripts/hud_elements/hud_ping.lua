@@ -64,6 +64,7 @@ HudPing._update_style = function(self, ui_renderer)
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
 				mod:get_horizontal_alignment(), mod:get_vertical_alignment())
 		end
+		ping_widget.dirty = true
 	end
 end
 
