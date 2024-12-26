@@ -23,6 +23,12 @@ mod.tactical_overlay_only = function(self)
 end
 
 ---@return boolean
+mod.hide_in_lobby = function(self)
+    return self:get(SettingNames.HideInLobby)
+end
+
+
+---@return boolean
 mod.show_average_ping = function(self)
     return self:get(SettingNames.ShowAveragePing)
 end

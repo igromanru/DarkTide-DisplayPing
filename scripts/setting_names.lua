@@ -8,6 +8,8 @@
 local SettingNames = {
     EnableMod = "enable_mod",
     TacticalOverlayOnly = "tactical_overlay_only",
+    HideInLobby = "hide_in_lobby",
+    HideInLobbyTooltip = "hide_in_lobby_tooltip",
     ShowAveragePing = "show_average_ping",
     ShowAveragePingTooltip = "show_average_ping_tooltip",
     ShowAveragePingTimeFrame = "average_ping_timeframe",

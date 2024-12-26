@@ -33,6 +33,12 @@ return {
 				default_value = true
 			},
 			{
+				setting_id = SettingNames.HideInLobby,
+				tooltip = SettingNames.HideInLobbyTooltip,
+				type = "checkbox",
+				default_value = false
+			},
+			{
 				setting_id = SettingNames.ShowAveragePing,
 				tooltip = SettingNames.ShowAveragePingTooltip,
 				type = "checkbox",

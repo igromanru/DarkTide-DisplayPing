@@ -7,6 +7,8 @@
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
 
+local MatchmakingConstants = require("scripts/settings/network/matchmaking_constants")
+
 local hud_ping_element = {
     class_name = "HudPing",
     filename = "DisplayPing/scripts/hud_elements/hud_ping"
@@ -95,15 +97,26 @@ mod.is_tactical_overlay_active = function()
     return false
 end
 
+mod.is_in_lobby = function()
+    local game_mode = Managers.state.game_mode
+    if not game_mode then return false end
+
+    return game_mode:is_social_hub()
+end
+
 mod.should_show_ping = function()
-    return mod:is_enabled() and (not mod:tactical_overlay_only() or mod:is_tactical_overlay_active())
+    if not mod:is_enabled() then return false end
+
+    local is_tactical_overlay_active = mod:is_tactical_overlay_active()
+    local is_in_lobby = mod:is_in_lobby()
+
+    return (not mod:tactical_overlay_only() and (not is_in_lobby or not mod:hide_in_lobby())) or is_tactical_overlay_active == true
 end
 
 mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
     last_ping = self._measures[#self._measures]
     add_measure(last_ping)
 end)
-
 
 if not mod:register_hud_element({
 	class_name = hud_ping_element.class_name,
