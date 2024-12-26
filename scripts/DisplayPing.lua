@@ -36,6 +36,7 @@ end
 
 ---@return number
 local function get_average_ping()
+    if table.is_empty(measures) then return -1 end
     return round(table.average(measures))
 end
 
@@ -56,7 +57,7 @@ mod.get_ping = function(self)
         ping = get_average_ping()
     end
 
-    if not ping then return -1 end
+    if type(ping) ~= "number" then return -1 end
     return round(ping)
 end
 
