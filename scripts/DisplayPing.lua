@@ -99,6 +99,12 @@ mod.should_show_ping = function()
     return mod:is_enabled() and (not mod:tactical_overlay_only() or mod:is_tactical_overlay_active())
 end
 
+mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
+    last_ping = self._measures[#self._measures]
+    add_measure(last_ping)
+end)
+
+
 if not mod:register_hud_element({
 	class_name = hud_ping_element.class_name,
 	filename = hud_ping_element.filename,
@@ -114,8 +120,3 @@ if not mod:register_hud_element({
 }) then
     mod:error("Failed to register Display Ping widget")
 end
-
-mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
-    last_ping = self._measures[#self._measures]
-    add_measure(last_ping)
-end)

@@ -165,6 +165,60 @@ return {
 				}
 			},
 			{
+				setting_id = SettingNames.SymbolGroup,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.Symbol,
+						type = "dropdown",
+						default_value = SettingNames.SymbolType.None,
+						options = {
+							{ text = SettingNames.SymbolType.None, value = SettingNames.SymbolType.None },
+							{ text = SettingNames.SymbolType.Circle, value = SettingNames.SymbolType.Circle },
+						},
+					},
+					{
+						setting_id = SettingNames.SymbolSidePosition,
+						type = "dropdown",
+						default_value = SettingNames.Sides.Left,
+						options = {
+							{ text = SettingNames.Sides.Left, value = SettingNames.Sides.Left },
+							{ text = SettingNames.Sides.Right, value = SettingNames.Sides.Right },
+						},
+					},
+					{
+						setting_id = SettingNames.SymbolSize,
+						type = "numeric",
+						default_value = 30,
+						range = { 10, 50 },
+					},
+					{
+						setting_id = SettingNames.SymbolOffsetToPing,
+						type = "numeric",
+						default_value = 0,
+						range = { -30, 30 },
+					},
+					{
+						setting_id = SettingNames.SymbolYOffset,
+						type = "numeric",
+						default_value = 0,
+						range = { -10, 10 },
+					},
+					{
+						setting_id = SettingNames.SymbolUsePingColor,
+						type = "checkbox",
+						default_value = false
+					},
+					{
+						setting_id = SettingNames.SymbolColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "white",
+					},
+				}
+			},
+			{
 				setting_id = SettingNames.PingRangeIndicatorGroup,
 				type = "group",
 				sub_widgets =
