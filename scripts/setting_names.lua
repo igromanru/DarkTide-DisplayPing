@@ -43,10 +43,22 @@ local SettingNames = {
     LabelOffsetToPing = "label_offset_to_ping",
     LabelYOffset = "label_y_offset",
     LabelUsePingColor = "label_use_ping_color",
-    LabelSide = {
+    Sides = {
         Left = "left",
         Right = "right",
     },
+    SymbolGroup = "symbol_style_group",
+    Symbol = "symbol",
+    SymbolSize = "symbol_size",
+    SymbolSidePosition = "symbol_side_position",
+    SymbolColor = "symbol_color",
+    SymbolOffsetToPing = "symbol_offset_to_ping",
+    SymbolYOffset = "symbol_y_offset",
+    SymbolUsePingColor = "symbol_use_ping_color",
+    SymbolType = {
+        None = "none",
+        Circle = "circle",
+    }
 }
 
 return SettingNames

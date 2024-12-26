@@ -127,10 +127,10 @@ return {
 					{
 						setting_id = SettingNames.LabelSidePosition,
 						type = "dropdown",
-						default_value = SettingNames.LabelSide.Left,
+						default_value = SettingNames.Sides.Left,
 						options = {
-							{ text = SettingNames.LabelSide.Left, value = SettingNames.LabelSide.Left },
-							{ text = SettingNames.LabelSide.Right, value = SettingNames.LabelSide.Right },
+							{ text = SettingNames.Sides.Left, value = SettingNames.Sides.Left },
+							{ text = SettingNames.Sides.Right, value = SettingNames.Sides.Right },
 						},
 					},
 					{

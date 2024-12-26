@@ -53,9 +53,9 @@ HudPing._update_style = function(self, ui_renderer)
 		ping_widget_style.ping_label.text_color = mod:get_label_color()
 		ping_widget_style.ping_label.offset[2] = mod:get_label_y_offset()
 		if mod:is_label_side_right() then
-			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.LabelSide.Right
+			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.Sides.Right
 		else
-			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.LabelSide.Left
+			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.Sides.Left
 		end
 		
 		self:_auto_resize(ui_renderer, ping_widget, mod:get_label_offset_to_ping())
