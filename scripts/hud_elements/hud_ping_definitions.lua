@@ -9,10 +9,6 @@ local UIWidget = require("scripts/managers/ui/ui_widget")
 
 local SCENEGRAPH_ID = "display_ping"
 
-local default_settings = {
-    position = { 0, 10, 0 },
-}
-
 return {
     scenegraph_definition = {
         screen = UIWorkspaceSettings.screen,
@@ -21,11 +17,37 @@ return {
             vertical_alignment = "top",
             horizontal_alignment = "center",
             size = { 40, 40 },
-            position = default_settings.position
+            position = { 0, 10, 0 },
+            offset = { 0 , 0, 0 },
         }
     },
     widget_definitions = {
         ping_widget = UIWidget.create_definition({
+            {
+                pass_type = "circle",
+                style_id = "ping_symbol",
+                value_id = "ping_symbol",
+                style = {
+                    vertical_alignment = "center",
+                    horizontal_alignment = "left",
+                    position = { 0, 0, 0 },
+                    offset = { 0 , 0, 2 },
+                    size = { 20, 20 },
+                    color = Color.white(0, true)
+                },
+            },
+            -- {
+            --     pass_type = "texture",
+			-- 	value = "content/ui/materials/symbols/new_item_indicator",
+            --     style_id = "ping_symbol",
+            --     style = {
+            --         vertical_alignment = "center",
+            --         horizontal_alignment = "left",
+            --         offset = { -100 , 0, 2 },
+            --         size = { 100, 100 },
+            --         color = Color.white(0, true)
+            --     },
+            -- },
             {
                 pass_type = "text",
                 style_id = "ping_label",
@@ -41,17 +63,6 @@ return {
                     text_color = Color.white(255, true)
                 },
             },
-            -- {
-            --     pass_type = "circle",
-            --     style_id = "ping_symbol",
-            --     style = {
-            --         text_vertical_alignment = "center",
-            --         text_horizontal_alignment = "left",
-            --         offset = { 0 , 16, 1 },
-            --         size = { 10, 10 },
-            --         text_color = Color.white(255, true)
-            --     },
-            -- },
             {
                 pass_type = "text",
                 style_id = "ping_text",
@@ -64,7 +75,7 @@ return {
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",
-                    offset = { 0, 0, 2 },
+                    offset = { 0, 0, 3 },
                     text_color = Color.white(255, true)
                 },
             },

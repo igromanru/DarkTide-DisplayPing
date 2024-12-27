@@ -6,8 +6,9 @@
 ]]
 local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
+mod:io_dofile("DisplayPing/scripts/DisplayPing_utils")
 
-local MatchmakingConstants = require("scripts/settings/network/matchmaking_constants")
+-- local MatchmakingConstants = require("scripts/settings/network/matchmaking_constants")
 
 local hud_ping_element = {
     class_name = "HudPing",
@@ -16,13 +17,6 @@ local hud_ping_element = {
 
 local last_ping = 0
 local measures = {}
-
-local function round(num, decimal_places)
-    local mult = 10^(decimal_places or 0)
-    return math.floor(num * mult + 0.5) / mult
-end
-
-mod.round = round
 
 local function add_measure(ping)
     if type(ping) == "number" then
@@ -39,17 +33,8 @@ end
 ---@return number
 local function get_average_ping()
     if table.is_empty(measures) then return -1 end
-    return round(table.average(measures))
+    return mod.round(table.average(measures))
 end
-
--- mod.get_hud_element = function()
---     local ui = Managers.ui
---     if ui then
---         local hud = ui:get_hud()
---         return hud and hud:element(hud_ping_element.class_name)
---     end
---     return nil
--- end
 
 ---@return number
 mod.get_ping = function(self)
@@ -60,76 +45,29 @@ mod.get_ping = function(self)
     end
 
     if type(ping) ~= "number" then return -1 end
-    return round(ping)
-end
-
-mod.get_ping_color = function(self)
-    local ping = self:get_ping()
-
-    if ping >= self:get_high_min_value() then
-        return self:get_high_color()
-    elseif ping >= self:get_middle_min_value() then
-        return self:get_middle_color()
-    elseif ping >= self:get_low_min_value() then
-        return self:get_low_color()
-    end
-
-    return self:get_default_color()
-end
-
-mod.get_label_color = function(self)
-    if self:should_label_use_ping_color() then
-        return self:get_ping_color()
-    end
-    return self:get_label_default_color()
+    return mod.round(ping)
 end
 
 mod.on_setting_changed = function(setting_id)
     mod.signal_style_update = true
 end
 
-mod.is_tactical_overlay_active = function()
-    local ui = Managers.ui
-    if ui then
-        local hud = ui:get_hud()
-        return hud and hud:tactical_overlay_active()
+mod.on_all_mods_loaded = function()
+    if not mod:register_hud_element({
+        class_name = hud_ping_element.class_name,
+        filename = hud_ping_element.filename,
+        use_hud_scale = true,
+        visibility_groups = {
+            "tactical_overlay",
+            "alive",
+            "dead",
+        },
+    }) then
+        mod:error("Failed to register Display Ping HUD element")
     end
-    return false
-end
 
-mod.is_in_lobby = function()
-    local game_mode = Managers.state.game_mode
-    if not game_mode then return false end
-
-    return game_mode:is_social_hub()
-end
-
-mod.should_show_ping = function()
-    if not mod:is_enabled() then return false end
-
-    local is_tactical_overlay_active = mod:is_tactical_overlay_active()
-    local is_in_lobby = mod:is_in_lobby()
-
-    return (not mod:tactical_overlay_only() and (not is_in_lobby or not mod:hide_in_lobby())) or is_tactical_overlay_active == true
-end
-
-mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
-    last_ping = self._measures[#self._measures]
-    add_measure(last_ping)
-end)
-
-if not mod:register_hud_element({
-	class_name = hud_ping_element.class_name,
-	filename = hud_ping_element.filename,
-	use_hud_scale = true,
-	visibility_groups = {
-		"tactical_overlay",
-		"alive",
-        "dead",
-	},
-    -- validation_function = function (params)
-    --     return mod:is_enabled()
-    -- end
-}) then
-    mod:error("Failed to register Display Ping widget")
+    mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
+        last_ping = self._measures[#self._measures]
+        add_measure(last_ping)
+    end)
 end

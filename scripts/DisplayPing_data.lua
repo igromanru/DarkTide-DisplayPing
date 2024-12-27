@@ -115,6 +115,54 @@ return {
 				}
 			},
 			{
+				setting_id = SettingNames.PingRangeIndicatorGroup,
+				type = "group",
+				sub_widgets =
+				{
+					{
+						setting_id = SettingNames.PingRangeIndicator,
+						type = "checkbox",
+						default_value = true
+					},
+					{
+						setting_id = SettingNames.PingLowMinValue,
+						type = "numeric",
+						default_value = 10,
+						range = { 1, 100 },
+					},
+					{
+						setting_id = SettingNames.PingLowColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "online_green",
+					},
+					{
+						setting_id = SettingNames.PingMiddleMinValue,
+						type = "numeric",
+						default_value = 60,
+						range = { 30, 200 },
+					},
+					{
+						setting_id = SettingNames.PingMiddleColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "yellow",
+					},
+					{
+						setting_id = SettingNames.PingHighMinValue,
+						type = "numeric",
+						default_value = 100,
+						range = { 50, 200 },
+					},
+					{
+						setting_id = SettingNames.PingHighColor,
+						type = "dropdown",
+						options = clone_color_options(),
+						default_value = "red",
+					},
+				}
+			},
+			{
 				setting_id = SettingNames.LabelStyleGroup,
 				type = "group",
 				sub_widgets =
@@ -196,11 +244,11 @@ return {
 					{
 						setting_id = SettingNames.SymbolSize,
 						type = "numeric",
-						default_value = 30,
-						range = { 10, 50 },
+						default_value = 20,
+						range = { 5, 50 },
 					},
 					{
-						setting_id = SettingNames.SymbolOffsetToPing,
+						setting_id = SettingNames.SymbolXOffset,
 						type = "numeric",
 						default_value = 0,
 						range = { -30, 30 },
@@ -214,61 +262,13 @@ return {
 					{
 						setting_id = SettingNames.SymbolUsePingColor,
 						type = "checkbox",
-						default_value = false
+						default_value = true
 					},
 					{
 						setting_id = SettingNames.SymbolColor,
 						type = "dropdown",
 						options = clone_color_options(),
 						default_value = "white",
-					},
-				}
-			},
-			{
-				setting_id = SettingNames.PingRangeIndicatorGroup,
-				type = "group",
-				sub_widgets =
-				{
-					{
-						setting_id = SettingNames.PingRangeIndicator,
-						type = "checkbox",
-						default_value = true
-					},
-					{
-						setting_id = SettingNames.PingLowMinValue,
-						type = "numeric",
-						default_value = 10,
-						range = { 1, 100 },
-					},
-					{
-						setting_id = SettingNames.PingLowColor,
-						type = "dropdown",
-						options = clone_color_options(),
-						default_value = "online_green",
-					},
-					{
-						setting_id = SettingNames.PingMiddleMinValue,
-						type = "numeric",
-						default_value = 60,
-						range = { 30, 200 },
-					},
-					{
-						setting_id = SettingNames.PingMiddleColor,
-						type = "dropdown",
-						options = clone_color_options(),
-						default_value = "yellow",
-					},
-					{
-						setting_id = SettingNames.PingHighMinValue,
-						type = "numeric",
-						default_value = 100,
-						range = { 50, 200 },
-					},
-					{
-						setting_id = SettingNames.PingHighColor,
-						type = "dropdown",
-						options = clone_color_options(),
-						default_value = "dark_red",
 					},
 				}
 			},

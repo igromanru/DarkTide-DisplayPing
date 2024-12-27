@@ -125,6 +125,33 @@ local localizations = {
   [SettingNames.LabelUsePingColor] = {
     en = "Match Ping's Color"
   },
+  [SettingNames.SymbolGroup] = {
+    en = "Symbol Style Settings"
+  },
+  [SettingNames.Symbol] = {
+    en = "Symbol"
+  },
+  [SettingNames.SymbolSize] = {
+    en = "Symbol Size"
+  },
+  [SettingNames.SymbolSidePosition] = {
+    en = "Position relative to Ping"
+  },
+  [SettingNames.SymbolColor] = {
+    en = "Color"
+  },
+  [SettingNames.SymbolXOffset] = {
+    en = "Gap size between Ping"
+  },
+  [SettingNames.SymbolYOffset] = {
+    en = "Y Offset"
+  },
+  [SettingNames.SymbolUsePingColor] = {
+    en = "Match Ping's Color"
+  },
+  [SettingNames.SymbolType.Circle] = {
+    en = "Circle"
+  },
   center = {
     en = "Center",
     de = "Mitte",
