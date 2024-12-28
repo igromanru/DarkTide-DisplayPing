@@ -140,7 +140,7 @@ local localizations = {
   [SettingNames.SymbolColor] = {
     en = "Color"
   },
-  [SettingNames.SymbolXOffset] = {
+  [SettingNames.SymbolOffsetToPing] = {
     en = "Gap size between Ping"
   },
   [SettingNames.SymbolYOffset] = {

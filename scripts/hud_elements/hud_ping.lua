@@ -43,33 +43,19 @@ HudPing._update_style = function(self, ui_renderer)
 		mod.signal_style_update = false
 		local ping_widget = self._widgets_by_name.ping_widget
 		local ping_widget_style = ping_widget.style
-		local ping_widget_content = ping_widget.content
 
 		-- Ping
 		ping_widget_style.ping_text.font_size = mod:get_font_size()
 		ping_widget_style.ping_text.text_color = mod:get_ping_color()
 		-- Label
-		ping_widget_content.ping_label =  mod:get_localized_ping_label()
+		ping_widget.content.ping_label = mod:get_localized_ping_label()
 		ping_widget_style.ping_label.font_size = mod:get_label_font_size()
 		ping_widget_style.ping_label.text_color = mod:get_label_color()
-		ping_widget_style.ping_label.offset[2] = mod:get_label_y_offset()
-		if mod:is_label_side_right() then
-			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.Sides.Right
-		else
-			ping_widget_style.ping_label.text_horizontal_alignment = SettingNames.Sides.Left
-		end
 		-- Symbol
 		ping_widget_style.ping_symbol.size = mod:get_symbol_size_array()
 		ping_widget_style.ping_symbol.color = mod:get_circle_symbol_color()
-		ping_widget_style.ping_symbol.offset[1] = mod:get_symbol_x_offset()
-		ping_widget_style.ping_symbol.offset[2] = mod:get_symbol_y_offset()
-		if mod:is_symbol_side_right() then
-			ping_widget_style.ping_symbol.horizontal_alignment = SettingNames.Sides.Right
-		else
-			ping_widget_style.ping_symbol.horizontal_alignment = SettingNames.Sides.Left
-		end
-		
-		self:_auto_resize(ui_renderer, ping_widget)
+
+		self:_auto_resize_and_position(ui_renderer, ping_widget)
 		
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
@@ -92,38 +78,47 @@ local function calculate_text_size(ui_renderer, widget, element_id, text)
 	return mod.round(width), mod.round(height), min, caret
 end
 
-HudPing._auto_resize = function(self, ui_renderer, widget)
-	-- "1888" is a workaround to create enough space around
-	local scenegraph_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
+HudPing._auto_resize_and_position = function(self, ui_renderer, widget)
+	local widget_style = widget.style
+
+	-- "1888" is a workaround to create enough space around the ping
+	local ping_width = calculate_text_size(ui_renderer, widget, "ping_text", "1888")
+	local ping_half_width = (ping_width * 0.5)
 	local label_width = 0
+	local label_half_width = 0
+	local label_offset = 0
 	if mod:is_label_visible() then
-		label_width = calculate_text_size(ui_renderer, widget, "ping_label", widget.content.ping_label)
-		label_width = label_width + mod:get_label_offset_to_ping()
-		scenegraph_width = scenegraph_width + label_width * 2
+		label_width = calculate_text_size(ui_renderer, widget, "ping_label")
+		label_half_width = (label_width * 0.5) 
+		label_offset = label_half_width + ping_half_width + mod:get_label_offset_to_ping()
+		local ping_label_offsets = widget_style.ping_label.offset
+		ping_label_offsets[2] = mod:get_label_y_offset()
+		if mod:is_label_side_right() then
+			ping_label_offsets[1] = label_offset
+		else
+			ping_label_offsets[1] = -label_offset
+		end		
 	end
 	if mod:is_symbol_visible() then
-		local symbol_size = mod:get_symbol_size() + 4
-		local size_to_add = symbol_size * 2
-		if label_width > 0 then
-			local symbol_alignment = widget.style.ping_symbol.horizontal_alignment
-			if symbol_alignment == widget.style.ping_label.text_horizontal_alignment then
-				if symbol_alignment == SettingNames.Sides.Right then
-					widget.style.ping_label.offset[1] = -symbol_size
-				else
-					widget.style.ping_label.offset[1] = symbol_size
-				end
-			else
-				if label_width < symbol_size then
-					size_to_add = (symbol_size - label_width) * 2
-				else
-					size_to_add = 0
-				end
-			end
+		local symbol_size = mod:get_symbol_size()
+		local symbol_half_size = symbol_size * 0.5
+		local is_symbol_side_right = mod:is_symbol_side_right()
+		local symbol_offset = symbol_half_size + mod:get_symbol_offset_to_ping()
+		if label_offset > 0 and is_symbol_side_right == mod:is_label_side_right() then
+			symbol_offset = symbol_offset + label_offset + label_half_width + 6
+		else
+			symbol_offset = symbol_offset + ping_half_width
 		end
-		scenegraph_width = scenegraph_width + size_to_add
+		local symbol_label_offsets = widget_style.ping_symbol.offset
+		symbol_label_offsets[2] = mod:get_symbol_y_offset()
+		if is_symbol_side_right then
+			symbol_label_offsets[1] = symbol_offset
+		else
+			symbol_label_offsets[1] = -symbol_offset
+		end
 	end
 	
-	scenegraph_width = math.max(scenegraph_width, 40)
+	scenegraph_width = math.max(ping_width + label_width, 40)
 	self:_set_scenegraph_size(HudPingDefinitions.scenegraph_id, scenegraph_width)
 end
 

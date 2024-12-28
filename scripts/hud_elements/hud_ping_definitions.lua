@@ -29,25 +29,12 @@ return {
                 value_id = "ping_symbol",
                 style = {
                     vertical_alignment = "center",
-                    horizontal_alignment = "left",
-                    position = { 0, 0, 0 },
+                    horizontal_alignment = "center",
                     offset = { 0 , 0, 2 },
                     size = { 20, 20 },
                     color = Color.white(0, true)
                 },
             },
-            -- {
-            --     pass_type = "texture",
-			-- 	value = "content/ui/materials/symbols/new_item_indicator",
-            --     style_id = "ping_symbol",
-            --     style = {
-            --         vertical_alignment = "center",
-            --         horizontal_alignment = "left",
-            --         offset = { -100 , 0, 2 },
-            --         size = { 100, 100 },
-            --         color = Color.white(0, true)
-            --     },
-            -- },
             {
                 pass_type = "text",
                 style_id = "ping_label",
@@ -58,7 +45,7 @@ return {
                     font_size = 30,
                     drop_shadow = true,
                     text_vertical_alignment = "center",
-                    text_horizontal_alignment = "left",
+                    text_horizontal_alignment = "center",
                     offset = { 0, 0, 1 },
                     text_color = Color.white(255, true)
                 },
@@ -71,7 +58,6 @@ return {
                 style = {
                     font_type = "machine_medium",
                     font_size = 30,
-                    -- line_spacing = 1.0,
                     drop_shadow = true,
                     text_vertical_alignment = "center",
                     text_horizontal_alignment = "center",

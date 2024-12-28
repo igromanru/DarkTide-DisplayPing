@@ -197,8 +197,8 @@ mod.get_symbol_size_array = function(self)
 end
 
 ---@return integer
-mod.get_symbol_x_offset = function(self)
-    return self:get(SettingNames.SymbolXOffset)
+mod.get_symbol_offset_to_ping = function(self)
+    return self:get(SettingNames.SymbolOffsetToPing)
 end
 
 ---@return integer
