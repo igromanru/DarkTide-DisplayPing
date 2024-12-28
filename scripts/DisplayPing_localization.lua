@@ -21,10 +21,10 @@ local localizations = {
     en = "Show only in tactical overlay"
   },
   [SettingNames.HideInLobby] = {
-    en = "Hide while in Morningstar"
+    en = "Hide while in Mourningstar"
   },
   [SettingNames.HideInLobbyTooltip] = {
-    en = "Shows Ping only in tactical overlay while in Morningstar"
+    en = "Shows Ping only in tactical overlay while in Mourningstar"
   },
   [SettingNames.ShowAveragePing] = {
     en = "Show Average Ping"
