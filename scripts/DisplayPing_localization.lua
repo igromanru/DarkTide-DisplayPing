@@ -48,7 +48,7 @@ local localizations = {
   },
   [SettingNames.CustomHudMode] = {
     en = "Custom HUD Mode",
-	["zh-cn"] = "自定义 HUD 模式",
+	["zh-cn"] = "Custom HUD 模式",
   },
   [SettingNames.PingHorizontalAlignment] = {
     en = "Horizontal Alignment",
@@ -60,7 +60,7 @@ local localizations = {
   },
   [SettingNames.CustomHudModeTooltip] = {
     en = "Prevents the mod from updating it's position on the screen, which allows other mods, like Custom HUD, to manage it.",
-	["zh-cn"] = "为防止因MOD更新导致屏幕上所在的位置发生改变，开启此选项可允许由其他MOD管理（例如自定义 HUD）",
+	["zh-cn"] = "为防止因MOD更新导致屏幕上所在的位置发生改变，开启此选项可允许由其他MOD管理（例如Custom HUD）",
   },
   [SettingNames.PingXOffset] = {
     en = "X Offset",
