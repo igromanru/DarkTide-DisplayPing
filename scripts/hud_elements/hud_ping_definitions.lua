@@ -18,7 +18,7 @@ return {
             horizontal_alignment = "center",
             size = { 40, 40 },
             position = { 0, 10, 0 },
-            offset = { 0 , 0, 0 },
+            offset = { 0, 0, 0 },
         }
     },
     widget_definitions = {
@@ -30,7 +30,7 @@ return {
                 style = {
                     vertical_alignment = "center",
                     horizontal_alignment = "center",
-                    offset = { 0 , 0, 2 },
+                    offset = { 0, 0, 2 },
                     size = { 20, 20 },
                     color = Color.white(0, true)
                 },

@@ -8,7 +8,7 @@ local mod = get_mod("DisplayPing")
 mod:io_dofile("DisplayPing/scripts/DisplayPing_settings")
 
 mod.round = function(num, decimal_places)
-    local mult = 10^(decimal_places or 0)
+    local mult = 10 ^ (decimal_places or 0)
     return math.floor(num * mult + 0.5) / mult
 end
 
@@ -70,5 +70,6 @@ end
 mod.should_show_ping = function()
     if not mod:is_enabled() then return false end
 
-    return mod:is_tactical_overlay_active() or (not mod:tactical_overlay_only() and (not mod:is_in_lobby() or not mod:hide_in_lobby()))
+    return mod:is_tactical_overlay_active() or
+    (not mod:tactical_overlay_only() and (not mod:is_in_lobby() or not mod:hide_in_lobby()))
 end

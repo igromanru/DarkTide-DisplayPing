@@ -54,15 +54,15 @@ end
 
 mod.on_all_mods_loaded = function()
     if not mod:register_hud_element({
-        class_name = hud_ping_element.class_name,
-        filename = hud_ping_element.filename,
-        use_hud_scale = true,
-        visibility_groups = {
-            "tactical_overlay",
-            "alive",
-            "dead",
-        },
-    }) then
+            class_name = hud_ping_element.class_name,
+            filename = hud_ping_element.filename,
+            use_hud_scale = true,
+            visibility_groups = {
+                "tactical_overlay",
+                "alive",
+                "dead",
+            },
+        }) then
         mod:error("Failed to register Display Ping HUD element")
     end
 

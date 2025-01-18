@@ -10,10 +10,10 @@ local SettingNames = mod:io_dofile("DisplayPing/scripts/setting_names")
 
 local color_options = {}
 for _, color_entity in ipairs(mod.Colors.get_entities()) do
-    table.insert(color_options, {
-            text = color_entity.color_name,
-            value = color_entity.color_name
-        })
+	table.insert(color_options, {
+		text = color_entity.color_name,
+		value = color_entity.color_name
+	})
 end
 
 local function clone_color_options()
@@ -124,10 +124,10 @@ return {
 						type = "dropdown",
 						default_value = SettingNames.PingLabels.None,
 						options = {
-							{ text = SettingNames.PingLabels.None, value = SettingNames.PingLabels.None },
-							{ text = SettingNames.PingLabels.Ping, value = SettingNames.PingLabels.Ping },
+							{ text = SettingNames.PingLabels.None,    value = SettingNames.PingLabels.None },
+							{ text = SettingNames.PingLabels.Ping,    value = SettingNames.PingLabels.Ping },
 							{ text = SettingNames.PingLabels.Latency, value = SettingNames.PingLabels.Latency },
-							{ text = SettingNames.PingLabels.MS, value = SettingNames.PingLabels.MS },
+							{ text = SettingNames.PingLabels.MS,      value = SettingNames.PingLabels.MS },
 						},
 					},
 					{
@@ -135,7 +135,7 @@ return {
 						type = "dropdown",
 						default_value = SettingNames.Sides.Left,
 						options = {
-							{ text = SettingNames.Sides.Left, value = SettingNames.Sides.Left },
+							{ text = SettingNames.Sides.Left,  value = SettingNames.Sides.Left },
 							{ text = SettingNames.Sides.Right, value = SettingNames.Sides.Right },
 						},
 					},
@@ -180,7 +180,7 @@ return {
 						type = "dropdown",
 						default_value = SettingNames.SymbolType.None,
 						options = {
-							{ text = SettingNames.SymbolType.None, value = SettingNames.SymbolType.None },
+							{ text = SettingNames.SymbolType.None,   value = SettingNames.SymbolType.None },
 							{ text = SettingNames.SymbolType.Circle, value = SettingNames.SymbolType.Circle },
 						},
 					},
@@ -189,7 +189,7 @@ return {
 						type = "dropdown",
 						default_value = SettingNames.Sides.Left,
 						options = {
-							{ text = SettingNames.Sides.Left, value = SettingNames.Sides.Left },
+							{ text = SettingNames.Sides.Left,  value = SettingNames.Sides.Left },
 							{ text = SettingNames.Sides.Right, value = SettingNames.Sides.Right },
 						},
 					},

@@ -56,7 +56,7 @@ HudPing._update_style = function(self, ui_renderer)
 		ping_widget_style.ping_symbol.color = mod:get_circle_symbol_color()
 
 		self:_auto_resize_and_position(ui_renderer, ping_widget)
-		
+
 		if not mod:is_custom_hud_mode() then
 			self:set_scenegraph_position(HudPingDefinitions.scenegraph_id, mod:get_x_offset(), mod:get_y_offset(), 0,
 				mod:get_horizontal_alignment(), mod:get_vertical_alignment())
@@ -73,8 +73,9 @@ end
 local function calculate_text_size(ui_renderer, widget, element_id, text)
 	text = text or widget.content[element_id]
 	local text_style = widget.style[element_id]
-	
-	local width, height, min, caret = UIRenderer.text_size(ui_renderer, text, text_style.font_type, text_style.font_size, text_style.size)
+
+	local width, height, min, caret = UIRenderer.text_size(ui_renderer, text, text_style.font_type, text_style.font_size,
+		text_style.size)
 	return mod.round(width), mod.round(height), min, caret
 end
 
@@ -89,7 +90,7 @@ HudPing._auto_resize_and_position = function(self, ui_renderer, widget)
 	local label_offset = 0
 	if mod:is_label_visible() then
 		label_width = calculate_text_size(ui_renderer, widget, "ping_label")
-		label_half_width = (label_width * 0.5) 
+		label_half_width = (label_width * 0.5)
 		label_offset = label_half_width + ping_half_width + mod:get_label_offset_to_ping()
 		local ping_label_offsets = widget_style.ping_label.offset
 		ping_label_offsets[2] = mod:get_label_y_offset()
@@ -97,7 +98,7 @@ HudPing._auto_resize_and_position = function(self, ui_renderer, widget)
 			ping_label_offsets[1] = label_offset
 		else
 			ping_label_offsets[1] = -label_offset
-		end		
+		end
 	end
 	if mod:is_symbol_visible() then
 		local symbol_size = mod:get_symbol_size()
@@ -117,7 +118,7 @@ HudPing._auto_resize_and_position = function(self, ui_renderer, widget)
 			symbol_label_offsets[1] = -symbol_offset
 		end
 	end
-	
+
 	scenegraph_width = math.max(ping_width + label_width, 40)
 	self:_set_scenegraph_size(HudPingDefinitions.scenegraph_id, scenegraph_width)
 end
