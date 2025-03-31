@@ -10,11 +10,10 @@ local InputUtils = require("scripts/managers/input/input_utils")
 local localizations = {
   mod_name = {
     en = "Display Ping",
-    ru = "Индикатор пинга",
   },
   mod_description = {
     en = "Displays your current ping",
-    ru = "Display Ping - Отображает ваш текущий пинг",
+    ru = "Отображает ваш текущий пинг",
   },
   [SettingNames.EnableMod] = {
     en = "Enable",
@@ -29,12 +28,12 @@ local localizations = {
   [SettingNames.HideInLobby] = {
     en = "Hide while in Mourningstar",
     ["zh-cn"] = "处于大厅时隐藏延迟信息",
-    ru = "Скрывать в Моунингстар",
+    ru = "Спрятывать в лобби",
   },
   [SettingNames.HideInLobbyTooltip] = {
     en = "Shows Ping only in tactical overlay while in Mourningstar",
     ["zh-cn"] = "当处于大厅时，仅在Tab页面显示延迟信息",
-    ru = "Показывает пинг только в тактическом оверлее в Моунингстар",
+    ru = "Показывает пинг только в тактическом оверлее пока в лобби",
   },
   [SettingNames.ShowAveragePing] = {
     en = "Show Average Ping",
@@ -49,7 +48,7 @@ local localizations = {
   [SettingNames.ShowAveragePingTimeFrame] = {
     en = "Average Ping time frame in seconds",
     ["zh-cn"] = "设定时间范围",
-    ru = "Среднее время пинга в секундах",
+    ru = "Время расчета среднего пинга в секундах",
   },
   [SettingNames.PositionOnScreen] = {
     en = "Position on Screen",
@@ -74,17 +73,17 @@ local localizations = {
   [SettingNames.CustomHudModeTooltip] = {
     en = "Prevents the mod from updating it's position on the screen, which allows other mods, like Custom HUD, to manage it.",
     ["zh-cn"] = "为防止因MOD更新导致屏幕上所在的位置发生改变，开启此选项可允许由其他MOD管理（例如Custom HUD）",
-    ru = "Не позволяет моду обновлять своё положение на экране, что позволяет другим модам, таким как Custom HUD, управлять им.",
+    ru = "Предотвращает обновление позиции мода на экране, что позволяет другим модам, таким как Custom HUD, управлять им.",
   },
   [SettingNames.PingXOffset] = {
     en = "X Offset",
     ["zh-cn"] = "X轴偏移值",
-    ru = "Смещение по вертикали",
+    ru = "Смещение по горизонтали",
   },
   [SettingNames.PingYOffset] = {
     en = "Y Offset",
     ["zh-cn"] = "Y轴偏移值",
-    ru = "Смещение по горизонтали",
+    ru = "Смещение по вертикали",
   },
   [SettingNames.PingStyleGroup] = {
     en = "Ping Style Settings",
@@ -99,7 +98,7 @@ local localizations = {
   [SettingNames.PingLabel] = {
     en = "Label",
     ["zh-cn"] = "文字",
-    ru = "Название",
+    ru = "Обозначение",
   },
   [SettingNames.PingDefaultColor] = {
     en = "Default Color",
@@ -154,17 +153,17 @@ local localizations = {
   [SettingNames.PingLabels.Ping] = {
     en = "Ping",
     ["zh-cn"] = "Ping",
-    ru = "Пинг",
+    ru = "Ping",
   },
   [SettingNames.PingLabels.Latency] = {
     en = "Latency",
     ["zh-cn"] = "Latency",
-    ru = "Задержка",
+    ru = "Latency",
   },
   [SettingNames.PingLabels.MS] = {
     en = "ms",
     ["zh-cn"] = "ms",
-    ru = "мс",
+    ru = "ms",
   },
   [SettingNames.LabelStyleGroup] = {
     en = "Label Style Settings",
