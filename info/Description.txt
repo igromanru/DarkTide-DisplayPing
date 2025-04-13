@@ -16,23 +16,27 @@ This mod is an alternative to [url=https://www.nexusmods.com/warhammer40kdarktid
 [font=Verdana][size=4][b]Differences to the Ping Monitor mod[/b][/size][/font]
 These are the key differences to the existing ping display mod [url=https://www.nexusmods.com/warhammer40kdarktide/mods/13]Ping Monitor[/url].
 [list]
-[*]Display Ping has options to adjust the text alignment on the screen with relative correction via offset value, customizable color and text size.
+[*]Display Ping has options to adjust the text alignment on the screen with correction via offset values, customizable color and text size.
+[*]An option to add a customizable Label on the left or right side of the Ping value.
 [*]Ping Monitor shows the ping only in the "Tactical Overlay", while Display Ping gives you the option to show the ping all the time.
-[*]Display Ping mod shows the latest ping measurement, while Ping Monitor shows average ping.
+[*]Ping Monitor shows average ping of last 30sec, Display Ping has the option to show average, but per default it shows latest measured latency.
 [*]Display Ping uses current ping value for Dynamic Color Range, Ping Monitor shows the text in orange or red depending on jitter.
-[/list]
-Currently I see no reason to show average ping instead of the latest latency measurement. I might add it as an option later, it it's useful.
+[*][url=https://www.nexusmods.com/warhammer40kdarktide/mods/10]Custom HUD[/url] support.
+[/list][font=Verdana][size=4][b]Feedback[/b][/size][/font]
+Feedback and suggestions for improvements are welcome.
 
-[font=Verdana][size=4][b]Feedback[/b][/size][/font]
-I'm a minimalist and the mod is good enough for me to check once in a while if my ping is high.
-Therefore if you have any suggestion leave a comment.
+[font=Verdana][size=4][b]Report Technical issues[/b][/size][/font]
+Please report any bugs in comments or create a "Bug Report".
+However, if you encounter technical issues like an error, game crash, the Ping doesn't show up on the HUD, please include the last game log.
+Logs can be found under: [i][b]%appdata%\Fatshark\Darktide\console_logs\[/b][/i]
+You can upload the content of the file to [url=https://pastebin.com/]pastebin.com[/url] or a similar site.
 
+[font=Verdana][size=3][b]Credits[/b][/size][/font]
+- [url=https://next.nexusmods.com/profile/ExplosionMagic]ExplosionMagic[/url] for Chinese localization
+- [url=https://next.nexusmods.com/profile/xsSplater]xsSplater[/url] for Russian localization
 
 [b][url=https://github.com/igromanru/DarkTide-DisplayPing]GitHub Page[/url][/b]
-
 [font=Arial][size=4]Highest form of appreciation[/size][/font]
 [size=2]If you like my work and feel generous, you can support me.[/size]
 [url=https://ko-fi.com/igromanru][img]https://i.imgur.com/rGcPxK8.png[/img][/url]
-[b]BTC:[/b] bc1q3frvfljn7ut09ggep2gxugv4ypqvyexz3ya7ja
-[b]ETH:[/b] 0xEedBbF6eFa84198cc94fE4Bf6FBB5dfa674AF86b
-[b]ADA:[/b] addr1qyx2sd2rgwdzvjhwnc35udx4k6w9lg524pwrf0llr7d2shzrewyq3nqyxfceuhgh5n5ucx3n8ws0n48krrlpw4khtedq4hzv93
+[url=https://buymeacoffee.com/igromanru][img]https://i.imgur.com/JG0mNZg.png[/img][/url]
