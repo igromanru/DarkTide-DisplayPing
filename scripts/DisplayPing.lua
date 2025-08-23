@@ -66,7 +66,7 @@ mod.on_all_mods_loaded = function()
         mod:error("Failed to register Display Ping HUD element")
     end
 
-    mod:hook_safe("PingReporter", "_take_measure", function(self, dt)
+    mod:hook_safe(CLASS.PingReporter, "_take_measure", function(self, dt)
         last_ping = self._measures[#self._measures]
         add_measure(last_ping)
     end)
